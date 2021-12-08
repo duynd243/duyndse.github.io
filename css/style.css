@@ -5,15 +5,30 @@ body {
     padding: 0;
 }
 
+ion-icon {
+    pointer-events: none;
+}
 
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
 nav {
+    background: white;
     font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav .logo img {
@@ -38,8 +53,36 @@ nav .nav-social {
     font-size: 25px;
 }
 
-nav .nav-social ion-icon {
+.nav-social>div {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    padding: 5px 8px;
+    font-size: 15px;
+    top: 60px;
+    border-radius: 6px;
+    text-align: center;
+    background-color: rgba(80, 73, 73, 0.801);
+    color: #fff;
+}
+
+.cv-icon:hover #cv-tooltiptext {
+    visibility: visible;
+}
+
+.github-icon:hover #github-tooltiptext {
+    visibility: visible;
+}
+
+.linkedin-icon:hover #linkedin-tooltiptext {
+    visibility: visible;
 }
 
 nav .nav-menu {
@@ -58,6 +101,11 @@ nav .nav-menu {
 }
 
 @media screen and (max-width: 480px) {
+
+    nav .logo img {
+        width: 30px;
+    }
+
     nav ul {
         display: none;
     }
@@ -67,6 +115,8 @@ nav .nav-menu {
     }
 
     nav .nav-menu {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
