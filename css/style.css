@@ -61,7 +61,7 @@ nav .nav-social {
 }
 
 .tooltiptext {
-    display: none;
+    visibility: hidden;
     position: absolute;
     z-index: 1;
     padding: 5px 8px;
@@ -73,16 +73,16 @@ nav .nav-social {
     color: #fff;
 }
 
-.cv-icon:hover #cv-tooltiptext {
-    display: block;
+.cv-icon:hover .cv-tooltiptext {
+    visibility: visible;
 }
 
-.github-icon:hover #github-tooltiptext {
-    display: block;
+.github-icon:hover .github-tooltiptext {
+    visibility: visible;
 }
 
-.linkedin-icon:hover #linkedin-tooltiptext {
-    display: block;
+.linkedin-icon:hover .linkedin-tooltiptext {
+    visibility: visible;
 }
 
 nav .nav-menu {
