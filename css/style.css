@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;500;600;700&display=swap');
 
 body {
     margin: 0;
@@ -16,12 +17,13 @@ ion-icon {
 }
 
 nav {
+    height: 50px;
     background: white;
     font-family: 'Poppins', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 15px 30px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
@@ -45,8 +47,20 @@ nav ul {
     list-style: none;
 }
 
+nav ul li {
+    cursor: pointer;
+    font-size: 1.1em;
+    border-bottom: 0px solid rgba(255, 255, 255, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+nav ul li:hover {
+    font-size: 1.2em;
+    border-bottom: 3px solid rgb(165, 241, 43);
+}
+
 nav .nav-social {
-    color: rgb(43, 43, 43);
+    color: rgb(65, 65, 65);
     display: flex;
     align-items: center;
     gap: 15px;
@@ -90,7 +104,78 @@ nav .nav-menu {
     font-size: 25px;
 }
 
+
+section.about-me {
+    background-image: linear-gradient(120deg, #f1fafd 0%, #d7f1fd 100%);
+
+    
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+}
+
+section.about-me .info {
+    padding: 100px 60px;
+    width: 45vw;
+}
+
+section.about-me .hi {
+    color: #11242E;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+section.about-me .name {
+    text-transform: uppercase;
+    color: #425a9b;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+section.about-me .role {
+    margin: 15px 0;
+    border-radius: 30px;
+    color: rgb(0, 73, 141);
+    font-size: 20px;
+}
+
+section.about-me .summary {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+section.about-me .btn {
+    margin-top: 40px;
+}
+
+section.about-me .btn button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 20px;
+    color: white;
+    outline: none;
+    border: none;
+    background: #426696;
+    transition: all 0.3s ease;
+}
+
+
+section.about-me .btn button:hover {
+    opacity: 0.9;
+}
+
+
+
 @media screen and (max-width: 768px) {
+
+    nav {
+        height: 42px;
+    }
+
     nav ul {
         gap: 20px;
     }
@@ -125,19 +210,19 @@ nav .nav-menu {
 /* width */
 ::-webkit-scrollbar {
     width: 6px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
