@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400&display=swap');
+
 
 body {
     margin: 0;
@@ -24,7 +25,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
 }
 
 nav .logo {
@@ -106,8 +107,10 @@ nav .nav-menu {
 
 
 section.about-me {
-    background-image: linear-gradient(120deg, #f1fafd 0%, #d7f1fd 100%);
-
+    /* background-image: linear-gradient(120deg, #f1fafd 0%, #d7f1fd 100%); */
+    background: #faf9f9;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     
     margin-top: 80px;
     font-family: 'Poppins', sans-serif;
@@ -115,19 +118,18 @@ section.about-me {
 }
 
 section.about-me .info {
-    padding: 100px 60px;
+    padding: 100px 180px;
     width: 45vw;
 }
 
 section.about-me .hi {
-    color: #11242E;
-    text-transform: uppercase;
+    opacity: 0.8;
     font-size: 40px;
 }
 
 section.about-me .name {
     text-transform: uppercase;
-    color: #425a9b;
+    color: #df401d;
     font-size: 80px;
     font-weight: 700;
 }
@@ -140,6 +142,7 @@ section.about-me .role {
 }
 
 section.about-me .summary {
+    font-family: 'Roboto Slab', serif;
     font-size: 18px;
     opacity: 0.8;
 }
@@ -156,10 +159,10 @@ section.about-me .btn button {
     border-radius: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    color: white;
+    color: #ece1a7;
     outline: none;
     border: none;
-    background: #426696;
+    background: #1c2d53;
     transition: all 0.3s ease;
 }
 
