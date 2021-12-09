@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400&display=swap');
 
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -15,10 +18,12 @@ ion-icon {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 nav {
-    height: 50px;
+    height: 70px;
     background: white;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -106,20 +111,39 @@ nav .nav-menu {
 }
 
 
-section.about-me {
-    /* background-image: linear-gradient(120deg, #f1fafd 0%, #d7f1fd 100%); */
-    background: #faf9f9;
+section.about-me .background {
+    background-position: right;
+    background-position-x: 90%;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    
-    margin-top: 80px;
-    font-family: 'Poppins', sans-serif;
+    background-size: 450px;
+    background-image: url("https://www.kindpng.com/picc/m/497-4973038_profile-picture-circle-png-transparent-png.png");
+    background-image: url("/images/duy-cirlce.png");
+
+}
+
+
+section.about-me {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    background-image: linear-gradient(120deg, #f1fafd 0%, #d7f1fd 100%);
+    background: #ffffff;
+    background-size: 100% 100%;
+    width: 95%;
+    margin-top: 90px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 30px;
+}
+
+
+section.about-me .small-background img {
+    display: none;
 }
 
 section.about-me .info {
-    padding: 100px 180px;
-    width: 45vw;
+    padding: 150px 180px;
+    width: 60%;
 }
 
 section.about-me .hi {
@@ -128,16 +152,20 @@ section.about-me .hi {
 }
 
 section.about-me .name {
+    margin: 20px 0;
     text-transform: uppercase;
-    color: #df401d;
+    color: #444444;
     font-size: 80px;
     font-weight: 700;
+    line-height: 100%;
 }
 
 section.about-me .role {
+    font-weight: 600;
+    font-family: monospace;
     margin: 15px 0;
     border-radius: 30px;
-    color: rgb(0, 73, 141);
+    color: rgb(18, 89, 155);
     font-size: 20px;
 }
 
@@ -148,6 +176,9 @@ section.about-me .summary {
 }
 
 section.about-me .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 40px;
 }
 
@@ -159,10 +190,11 @@ section.about-me .btn button {
     border-radius: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    color: #ece1a7;
+    color: #ffffff;
     outline: none;
     border: none;
-    background: #1c2d53;
+    background: #17bc78;
+    background: linear-gradient(to right, #23a871, #1c9663);
     transition: all 0.3s ease;
 }
 
@@ -172,11 +204,27 @@ section.about-me .btn button:hover {
 }
 
 
+@media screen and (max-width: 1200px) {
+
+    section.about-me .background {
+        background-size: 400px;
+        background-position-x: 100%;
+    }
+
+    section.about-me .info {
+        padding: 4vw;
+        width: 55%;
+    }
+
+    section.about-me .name {
+        font-size: 70px;
+    }
+}
 
 @media screen and (max-width: 768px) {
 
     nav {
-        height: 42px;
+        height: 62px;
     }
 
     nav ul {
@@ -185,6 +233,22 @@ section.about-me .btn button:hover {
 
     nav .nav-social {
         gap: 10px;
+    }
+
+
+    section.about-me .info {
+        width: 100%;
+        padding: 10vw;
+    }
+
+    section.about-me .background {
+        background: none;
+    }
+
+    section.about-me .small-background img {
+        display: block;
+        text-align: center;
+        width: 40vw;
     }
 }
 
@@ -207,6 +271,31 @@ section.about-me .btn button:hover {
         align-items: center;
         justify-content: center;
     }
+
+    section.about-me {
+        width: 100%;
+    }
+
+    section.about-me .hi {
+        font-size: 30px;
+    }
+
+    section.about-me .name {
+        font-size: 45px;
+    }
+
+    section.about-me .role {
+        font-size: 18px;
+    }
+
+    section.about-me .summary {
+        font-size: 16px;
+    }
+
+    section.about-me .btn button {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
 }
 
 
@@ -228,4 +317,32 @@ section.about-me .btn button:hover {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+#hello-hand {
+    display: inline-block;
+    animation-duration: 1s;
+    animation-name: handshake-up, handshake-down;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes handshake-up {
+    from {
+        transform: rotate(-30deg);
+    }
+
+    to {
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes handshake-down {
+    from {
+        transform: rotate(30deg);
+    }
+
+    to {
+        transform: rotate(-30deg);
+    }
 }
