@@ -14,10 +14,8 @@ function hideNavMobile() {
 function scrollToSection(section) {
     const aboutme = document.getElementsByClassName('about-me')[0];
 
-
+    hideNavMobile();
     if (section === 'aboutme') {
         aboutme.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
     }
-
-    hideNavMobile();
 }

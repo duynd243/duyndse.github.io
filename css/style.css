@@ -45,6 +45,7 @@ ion-icon {
     bottom: 0;
     z-index: 4;
     transition: all 0.4s linear;
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-mobile .hide-btn{
@@ -56,11 +57,11 @@ ion-icon {
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: 'Poppins', sans-serif;
     font-size: 25px;
 }
 
 .nav-mobile ul li{
+    cursor: pointer;
     margin-top: 20px;
     margin-left: 40px;
     transition: all 0.2s ease-in-out;
@@ -68,6 +69,41 @@ ion-icon {
 
 .nav-mobile ul li:hover{
     font-size: 1.2em;
+}
+
+.nav-mobile .social-btn{
+    margin-top: 30px;
+    margin-left: 40px;
+    font-size: 18px;
+}
+
+.nav-mobile .social-btn > div{
+    color: rgb(39, 39, 39);
+    cursor: pointer;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-mobile .nav-footer {
+    border-top-left-radius: 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    background: #162e71;
+    background: linear-gradient(to right, #4cb8c4, #3cd3ad);
+    font-size: 20px;
+    padding: 20px 30px;
+}
+
+.nav-mobile .nav-footer img{
+    width: 45px;
 }
 
 nav {
