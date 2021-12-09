@@ -49,6 +49,8 @@ ion-icon {
 }
 
 .nav-mobile .hide-btn{
+    cursor: pointer;
+    width: 30px;
     padding: 20px;
     font-size: 25px;
 }
