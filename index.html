@@ -16,6 +16,8 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <title>Nguyen Dinh Duy | Porfolio Page</title>
 </head>
@@ -48,11 +50,26 @@
                 </div>
             </div>
 
-            <div class="nav-menu">
+            <div class="nav-menu" onclick="showNavMobile()">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
         </nav>
     </div>
+
+    <div class="nav-overlay" onclick="hideNavMobile()">
+
+    </div>
+    <div class="nav-mobile">
+        <div class="hide-btn" onclick="hideNavMobile()">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+        <ul>
+            <li>About me</li>
+            <li>My Projects</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+
     <section class="about-me">
         <div class="small-background">
             <img src="/images/duy-cirlce.png" alt="">

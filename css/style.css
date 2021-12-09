@@ -22,6 +22,54 @@ ion-icon {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
+.nav-overlay{
+    display: none;
+    position: fixed;
+    background: rgb(0 0 0 / 55%);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 3;
+    animation: fadeIn 0.4s;
+}
+
+.nav-mobile{
+    transform: translateX(100%);
+    position: fixed;
+    background: white;
+    width: 320px;
+    max-width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    transition: all 0.4s linear;
+}
+
+.nav-mobile .hide-btn{
+    padding: 20px;
+    font-size: 25px;
+}
+
+.nav-mobile ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+}
+
+.nav-mobile ul li{
+    margin-top: 20px;
+    margin-left: 40px;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-mobile ul li:hover{
+    font-size: 1.2em;
+}
+
 nav {
     height: 70px;
     background: white;
@@ -30,7 +78,6 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 15px 30px;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
 }
 
 nav .logo {
@@ -121,7 +168,6 @@ section.about-me .background {
 
 }
 
-
 section.about-me {
     display: flex;
     flex-direction: column;
@@ -135,7 +181,6 @@ section.about-me {
     font-family: 'Poppins', sans-serif;
     border-radius: 30px;
 }
-
 
 section.about-me .small-background img {
     display: none;
@@ -198,14 +243,11 @@ section.about-me .btn button {
     transition: all 0.3s ease;
 }
 
-
 section.about-me .btn button:hover {
     opacity: 0.9;
 }
 
-
 @media screen and (max-width: 1200px) {
-
     section.about-me .background {
         background-size: 400px;
         background-position-x: 100%;
@@ -344,5 +386,13 @@ section.about-me .btn button:hover {
 
     to {
         transform: rotate(-30deg);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
     }
 }
