@@ -44,7 +44,7 @@ ion-icon {
     right: 0;
     bottom: 0;
     z-index: 4;
-    transition: all 0.4s linear;
+    transition: all 0.3s linear;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -66,7 +66,6 @@ ion-icon {
     cursor: pointer;
     margin-top: 20px;
     margin-left: 40px;
-    transition: all 0.2s ease-in-out;
 }
 
 .nav-mobile ul li:hover {
@@ -88,6 +87,11 @@ ion-icon {
     gap: 15px;
 }
 
+.nav-mobile ul li, .social-btn > div{
+    transition: all 0.7s ease;
+    transform: translate(50%, 100%) scale(0);
+}
+
 .nav-mobile .nav-footer {
     border-top-left-radius: 0px;
     position: absolute;
@@ -98,8 +102,7 @@ ion-icon {
     align-items: center;
     justify-content: space-between;
     color: rgb(255, 255, 255);
-    background: #162e71;
-    background: linear-gradient(to right, #4cb8c4, #3cd3ad);
+    background: #152d87;
     font-size: 20px;
     padding: 20px 30px;
 }
