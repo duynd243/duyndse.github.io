@@ -22,7 +22,7 @@ ion-icon {
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
-.nav-overlay{
+.nav-overlay {
     display: none;
     position: fixed;
     background: rgb(0 0 0 / 55%);
@@ -34,7 +34,7 @@ ion-icon {
     animation: fadeIn 0.4s;
 }
 
-.nav-mobile{
+.nav-mobile {
     transform: translateX(100%);
     position: fixed;
     background: white;
@@ -48,38 +48,38 @@ ion-icon {
     font-family: 'Poppins', sans-serif;
 }
 
-.nav-mobile .hide-btn{
+.nav-mobile .hide-btn {
     cursor: pointer;
     width: 30px;
     padding: 20px;
     font-size: 25px;
 }
 
-.nav-mobile ul{
+.nav-mobile ul {
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: 25px;
 }
 
-.nav-mobile ul li{
+.nav-mobile ul li {
     cursor: pointer;
     margin-top: 20px;
     margin-left: 40px;
     transition: all 0.2s ease-in-out;
 }
 
-.nav-mobile ul li:hover{
+.nav-mobile ul li:hover {
     font-size: 1.2em;
 }
 
-.nav-mobile .social-btn{
+.nav-mobile .social-btn {
     margin-top: 30px;
     margin-left: 40px;
     font-size: 18px;
 }
 
-.nav-mobile .social-btn > div{
+.nav-mobile .social-btn>div {
     color: rgb(39, 39, 39);
     cursor: pointer;
     margin-top: 15px;
@@ -104,7 +104,7 @@ ion-icon {
     padding: 20px 30px;
 }
 
-.nav-mobile .nav-footer img{
+.nav-mobile .nav-footer img {
     width: 45px;
 }
 
@@ -427,10 +427,12 @@ section.about-me .btn button:hover {
     }
 }
 
-@keyframes fadeIn{
-    from{
+@keyframes fadeIn {
+    from {
         opacity: 0;
-    } to{
+    }
+
+    to {
         opacity: 1;
     }
 }
