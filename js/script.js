@@ -32,6 +32,6 @@ function scrollToSection(section) {
     hideNavMobile();
 
     $([document.documentElement, document.body]).animate({
-        scrollTop: target
+        scrollTop: target - 65
     }, 800, 'swing');
 }
