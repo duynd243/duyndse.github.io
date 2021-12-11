@@ -205,7 +205,6 @@ section.about-me .background {
     background-position-x: 90%;
     background-repeat: no-repeat;
     background-size: 450px;
-    background-image: url("https://www.kindpng.com/picc/m/497-4973038_profile-picture-circle-png-transparent-png.png");
     background-image: url("/images/duy-cirlce.png");
 
 }
@@ -289,6 +288,72 @@ section.about-me .btn button:hover {
     opacity: 0.9;
 }
 
+
+/* PROJECTS SECTION */
+
+section.projects {
+    padding: 40px 0;
+    background: #172026;
+}
+
+.projects-container{
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-item{
+    height: 550px;
+    width: 450px;
+    border-radius: 10px;
+    background: #f0efef;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-img-container{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.project-img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.project-item:hover .project-img{
+    transform: scale(1.1);
+}
+
+.project-item:hover{
+    transform: scale(1.02);
+}
+
+.project-name{
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(54, 54, 54);
+    padding: 10px 20px;
+}
+
+.project-detail{
+    font-size: 15px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(83, 83, 83);
+    padding: 10px 20px;
+}
+
+
+/* CONTACT SECTION */
+
 @media screen and (max-width: 1200px) {
     section.about-me .background {
         background-size: 400px;
@@ -306,6 +371,10 @@ section.about-me .btn button:hover {
 }
 
 @media screen and (max-width: 768px) {
+
+    .projects-container{
+        flex-direction: column;
+    }
 
     nav {
         height: 62px;

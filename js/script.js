@@ -43,5 +43,5 @@ function scrollToSection(section) {
 
     $([document.documentElement, document.body]).animate({
         scrollTop: target - 65
-    }, 800);
+    }, 700);
 }
