@@ -87,7 +87,7 @@ ion-icon {
     gap: 15px;
 }
 
-.nav-mobile ul li, .social-btn > div{
+.nav-mobile ul li, .social-btn>div {
     transition: all 0.7s ease;
     transform: translate(50%, 100%) scale(0);
 }
@@ -103,6 +103,7 @@ ion-icon {
     justify-content: space-between;
     color: rgb(255, 255, 255);
     background: #152d87;
+    background: linear-gradient(to right, #2c6dda 0%, #2575fc 100%);
     font-size: 20px;
     padding: 20px 30px;
 }
@@ -195,7 +196,7 @@ nav .nav-social {
 
 nav .nav-menu {
     display: none;
-    font-size: 25px;
+    font-size: 28px;
 }
 
 
@@ -295,7 +296,7 @@ section.about-me .btn button:hover {
     }
 
     section.about-me .info {
-        padding: 4vw;
+        padding: 85px 4vw;
         width: 55%;
     }
 
