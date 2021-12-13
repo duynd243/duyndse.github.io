@@ -45,10 +45,10 @@ ion-icon {
     bottom: 0;
     z-index: 4;
     transition: all .3s linear;
-    font-family: Poppins,sans-serif;
+    font-family: Poppins, sans-serif;
     background: rgb(255 255 255 / 83%);
-    backdrop-filter: blur( 15px );
-    -webkit-backdrop-filter: blur( 15px );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-top-left-radius: 10px;
 }
 
@@ -107,13 +107,12 @@ ion-icon {
     justify-content: space-between;
     color: #fff;
     background: #152d87;
-    background: linear-gradient(to right,#2c6dda 0,#2575fc 100%);
+    background: linear-gradient(to right, #2c6dda 0, #2575fc 100%);
     font-size: 20px;
     padding: 20px 30px;
     background: #255e4de6;
-    /* box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%); */
-    backdrop-filter: blur( 7px );
-    -webkit-backdrop-filter: blur( 7px );
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
     border-top-left-radius: 10px;
 }
 
@@ -131,8 +130,8 @@ nav {
     padding: 15px 30px;
     background: rgb(255 255 255 / 86%);
     /* box-shadow: 0 8px 32px 0 rgb(211 213 240 / 37%); */
-    backdrop-filter: blur( 15px );
-    -webkit-backdrop-filter: blur( 15px );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 nav .logo {
@@ -300,29 +299,45 @@ section.about-me .btn button:hover {
     opacity: .9
 }
 
-section.projects {
+
+/* PROJECTS SECTION */
+
+
+section.projects .projects-heading {
     padding: 40px 0;
-    background: #172026
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+    color: #fff;
+}
+
+section.projects {
+    padding-bottom: 40px;
+    background: #172026;
 }
 
 .projects-container {
     display: flex;
     gap: 35px;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .project-item {
-    height: 550px;
-    width: 450px;
-    border-radius: 10px;
-    background: #f0efef;
-    transition: all .3s ease-in-out
+    position: relative;
+    height: 520px;
+    width: 420px;
+    border-radius: 7px;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 0.1rem 0.3rem rgb(52 58 64 / 15%);
+    background: linear-gradient(85deg, #f6fdff, #ffffff);
 }
 
 .project-img-container {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     height: 250px;
     overflow: hidden
 }
@@ -344,12 +359,22 @@ section.projects {
     transform: scale(1.02)
 }
 
+
+.project-type {
+    color: #cd5022;
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 20px 0 20px;
+}
+
+
 .project-name {
     font-size: 24px;
     font-weight: 500;
     font-family: Poppins, sans-serif;
     color: #363636;
-    padding: 10px 20px
+    padding: 8px 20px;
 }
 
 .project-detail {
@@ -358,6 +383,50 @@ section.projects {
     font-family: Poppins, sans-serif;
     color: #535353;
     padding: 10px 20px
+}
+
+.project-btn {
+    bottom: 20px;
+    width: 100%;
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-btn ion-icon {
+    font-size: 18px;
+}
+
+.project-btn>div {
+    cursor: pointer;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-btn>div:hover {
+    opacity: 0.9;
+}
+
+.project-btn .github-btn {
+    color: white;
+    background: #262727;
+}
+
+
+.project-btn .demo-btn {
+    color: white;
+    background: #553dd9;
 }
 
 @media screen and (max-width:1200px) {
@@ -452,6 +521,10 @@ section.projects {
         padding: 8px 15px;
         font-size: 16px
     }
+
+    .project-item {
+        max-width: 90vw;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -502,7 +575,7 @@ section.projects {
     from {
         opacity: 0
     }
-    
+
     to {
         opacity: 1
     }
