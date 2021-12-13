@@ -25,7 +25,7 @@ ion-icon {
 .nav-overlay {
     display: none;
     position: fixed;
-    background: rgb(0 0 0 / 55%);
+    background: rgb(0 0 0 / 42%);
     top: 0;
     right: 0;
     left: 0;
@@ -47,11 +47,9 @@ ion-icon {
     transition: all .3s linear;
     font-family: Poppins,sans-serif;
     background: rgb(255 255 255 / 83%);
-    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-    backdrop-filter: blur( 7px );
-    -webkit-backdrop-filter: blur( 7px );
+    backdrop-filter: blur( 15px );
+    -webkit-backdrop-filter: blur( 15px );
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 
 .nav-mobile .hide-btn {
@@ -112,12 +110,11 @@ ion-icon {
     background: linear-gradient(to right,#2c6dda 0,#2575fc 100%);
     font-size: 20px;
     padding: 20px 30px;
-    background: #1f5062cc;
+    background: #255e4de6;
     /* box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%); */
     backdrop-filter: blur( 7px );
     -webkit-backdrop-filter: blur( 7px );
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 
 .nav-mobile .nav-footer img {
@@ -134,8 +131,8 @@ nav {
     padding: 15px 30px;
     background: rgb(255 255 255 / 86%);
     /* box-shadow: 0 8px 32px 0 rgb(211 213 240 / 37%); */
-    backdrop-filter: blur( 7px );
-    -webkit-backdrop-filter: blur( 7px );
+    backdrop-filter: blur( 15px );
+    -webkit-backdrop-filter: blur( 15px );
 }
 
 nav .logo {
