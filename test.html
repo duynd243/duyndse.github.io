@@ -1,13 +1,32 @@
 <html>
-  <head>
+
+<head>
     <title>reCAPTCHA demo: Simple page</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <form action="?" method="POST">
-      <div class="g-recaptcha" data-sitekey="6LdeH6UdAAAAAHPATPuwZ4x4_328gerxsG-KedNo"></div>
-      <br/>
-      <input type="submit" value="Submit">
+        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
+        <br />
+        <input type="submit" value="Submit">
     </form>
-  </body>
+</body>
+
+<script>
+    function validateRecaptcha() {
+        var response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            alert("not validated");
+            return false;
+        } else {
+            alert("validated");
+            return true;
+        }
+    }
+</script>
+
 </html>
+
+
+<!-- 6LfLKqUdAAAAAPiL2GSlUcJEOek-8fTTAMf7REgr -->
