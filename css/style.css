@@ -314,31 +314,32 @@ section.projects .projects-heading {
 
 section.projects {
     padding-bottom: 40px;
-    background: #172026;
+    background: linear-gradient(45deg, #191e21, #172026);
 }
 
 .projects-container {
     display: flex;
     gap: 35px;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-wrap: wrap;
 }
 
 .project-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
-    height: 520px;
     width: 420px;
     transition: all 0.4s ease-in-out;
     box-shadow: 0 0.1rem 0.3rem rgb(52 58 64 / 15%);
     background: linear-gradient(85deg, #f6fdff, #ffffff);
 }
 
+
 .project-img-container {
-    /* border-top-left-radius: 7px;
-    border-top-right-radius: 7px; */
     height: 250px;
     overflow: hidden
 }
@@ -357,7 +358,7 @@ section.projects {
 }
 
 .project-item:hover {
-    transform: scale(1.02)
+    transform: scale(1.0)
 }
 
 
@@ -394,14 +395,12 @@ section.projects {
 
 .project-btn {
     padding: 20px 30px;
-    bottom: 0;
     width: 100%;
-    position: absolute;
     font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 300;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
     background: #f2f1f0;
 }
@@ -411,14 +410,15 @@ section.projects {
 }
 
 .project-btn>div {
+    width: 48%;
     cursor: pointer;
     gap: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 25px;
+    padding: 5px 0;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -456,6 +456,7 @@ section.projects {
 @media screen and (max-width:768px) {
     /* .projects-container {
         flex-direction: column;
+        align-items: center;
     } */
 
     nav {
@@ -483,6 +484,15 @@ section.projects {
         display: block;
         text-align: center;
         width: 40vw
+    }
+
+    .project-btn{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .project-btn > div{
+        width: 100%;
     }
 }
 
