@@ -82,7 +82,9 @@ ion-icon {
     font-size: 18px
 }
 
-.nav-mobile .social-btn>div {
+.nav-mobile .social-btn>a {
+    color: inherit;
+    text-decoration: none;
     color: #272727;
     cursor: pointer;
     margin-top: 15px;
@@ -91,7 +93,7 @@ ion-icon {
     gap: 15px
 }
 
-.nav-mobile ul li, .social-btn>div {
+.nav-mobile ul li, .social-btn>a {
     transition: all .7s ease;
     transform: translate(50%, 100%) scale(0)
 }
@@ -174,11 +176,13 @@ nav .nav-social {
     font-size: 25px
 }
 
-.nav-social>div {
+.nav-social>a {
+    color: inherit;
+    text-decoration: none;
     cursor: pointer;
     display: flex;
-    flex-direction: column;
-    align-items: center
+    align-items: center;
+    justify-content: center;
 }
 
 .tooltiptext {
@@ -409,7 +413,8 @@ section.projects {
     font-size: 18px;
 }
 
-.project-btn>div {
+.project-btn>a {
+    text-decoration: none;
     width: 48%;
     cursor: pointer;
     gap: 8px;
@@ -422,7 +427,7 @@ section.projects {
     transition: all 0.3s ease-in-out;
 }
 
-.project-btn>div:hover {
+.project-btn>a:hover {
     opacity: 0.9;
 }
 
@@ -491,7 +496,7 @@ section.projects {
         gap: 10px;
     }
 
-    .project-btn > div{
+    .project-btn > a{
         width: 100%;
     }
 }
