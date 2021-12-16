@@ -1,0 +1,110 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap);
+
+* {
+    box-sizing: border-box;
+}
+
+ion-icon {
+    pointer-events: none
+}
+
+#toast__container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    max-width: 90%;
+    width: 400px;
+    z-index: 100;
+}
+
+.toast {
+    background: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    transition: all 0.3s linear;
+    animation: appear ease 1s, fadeOut ease 0.6s 4s forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        left: 50%;
+        transform: translate(0, -120%) scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translate(0, -120%);
+    }
+}
+
+.toast__icon {
+    font-size: 28px;
+}
+
+.toast--success .toast__icon {
+    color: rgb(55, 164, 55);
+}
+
+.toast--error .toast__icon {
+    color: rgb(224, 54, 54);
+}
+
+.toast__content {
+    margin: 0px 5px 0px 15px;
+}
+
+.toast__title {
+    color: #363636;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.toast__message {
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.toast__close {
+    cursor: pointer;
+    display: flex;
+    border-radius: 50%;
+    padding: 2px;
+    background: rgb(226, 224, 224);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.toast__close:hover {
+    color: white;
+    background: rgb(230, 61, 61);
+}
+
+
+@media screen and (max-width:480px) {
+    .toast__title {
+        font-size: 16px;
+        margin-bottom: 7px;
+    }
+
+    .toast__message {
+        font-size: 14px;
+    }
+}

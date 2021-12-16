@@ -21,6 +21,9 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!--CSS + JS-->
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
 
@@ -35,9 +38,11 @@
 </head>
 
 <body>
+    <div id="toast__container">
+    </div>
     <div class="nav-container">
         <nav>
-            <div class="logo">
+            <div class="logo" onclick="return showToast('success','Success', 'If you can\'t find the email, please check in the spam or sponsor box also.')">
                 <img src="images/dn-logo.png" alt="" srcset="">
             </div>
             <ul>

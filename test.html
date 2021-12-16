@@ -1,43 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>reCAPTCHA demo: Simple page</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ION-ICON-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
 </head>
 
 <body>
-    <form onsubmit="return validateRecaptcha()" action="https://porfolio-sendmail.herokuapp.com/send" method="POST">
-        Name 
-        <input type="text" name="fullName">
-        <br>
-        <br>
-        Email 
-        <input type="email" name="email">
-        <br>
-        <br>
-        Message
-        <input type="text" name="message">
-        
-        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
-        <br />
-        <input type="submit" value="Submit">
-    </form>
+    <div id="toast__container">
+    </div>
+
+
 </body>
 
-<script>
-    function validateRecaptcha() {
-        var response = grecaptcha.getResponse();
-        if (response.length === 0) {
-            alert("not validated");
-            return false;
-        } else {
-            alert("validated");
-            return true;
-        }
-    }
-</script>
-
 </html>
-
-
-<!-- 6LfLKqUdAAAAAPiL2GSlUcJEOek-8fTTAMf7REgr -->
