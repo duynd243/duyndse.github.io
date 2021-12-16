@@ -76,8 +76,8 @@ ion-icon {
 }
 
 .toast__message {
-    opacity: 0.8;
-    font-weight: 500;
+    color: #3b3a3a;
+    font-weight: 400;
 }
 
 .toast__close {
