@@ -3,30 +3,19 @@
 <head>
     <title>reCAPTCHA demo: Simple page</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("demo-form").submit();
+        }
+    </script>
 </head>
 
 <body>
-    <form onsubmit="return validateRecaptcha()" action="http://localhost:8080/porfolio-sendmail/send" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
+    <form id='demo-form' action="http://localhost:8080/porfolio-sendmail/send" method="POST">
+        <button class="g-recaptcha" data-sitekey="6Lf5oqcdAAAAAIWtiVQ2nbcrW2wJsqk3EVmSDbbz"
+            data-callback='onSubmit'>Submit</button>
         <br />
-        <input type="submit" value="Submit">
     </form>
 </body>
 
-<script>
-    function validateRecaptcha() {
-        var response = grecaptcha.getResponse();
-        if (response.length === 0) {
-            alert("not validated");
-            return false;
-        } else {
-            alert("validated");
-            return true;
-        }
-    }
-</script>
-
 </html>
-
-
-<!-- 6LfLKqUdAAAAAPiL2GSlUcJEOek-8fTTAMf7REgr -->
