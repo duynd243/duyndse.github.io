@@ -7,7 +7,18 @@
 
 <body>
     <form onsubmit="return validateRecaptcha()" action="http://localhost:8080/porfolio-sendmail/send" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni" data-theme="dark"></div>
+        Name 
+        <input type="text" name="fullName">
+        <br>
+        <br>
+        Email 
+        <input type="email" name="email">
+        <br>
+        <br>
+        Message
+        <input type="text" name="fullName">
+        
+        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
         <br />
         <input type="submit" value="Submit">
     </form>
