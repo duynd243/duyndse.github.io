@@ -12,7 +12,7 @@ ion-icon {
     position: fixed;
     top: 20px;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translateX(-50%);
     max-width: 90%;
     z-index: 100;
 }
@@ -36,19 +36,19 @@ ion-icon {
 @keyframes appear {
     from {
         opacity: 0;
-        transform: translate(0, -120%) scale(0);
+        transform: translateY(-120%) scale(0);
     }
 
     to {
         opacity: 1;
-        transform: translate(0, 0) scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
 @keyframes fadeOut {
     to {
         opacity: 0;
-        transform: translate(0, -120%);
+        transform: translateY(-120%) scale(0.8);
     }
 }
 
@@ -68,9 +68,22 @@ ion-icon {
     margin: 0px 5px 0px 15px;
 }
 
+
+.toast__title_time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right:20px;
+    margin-bottom: 10px;
+}
+
+.toast__time {
+    color: #818181;
+    font-size: 16px;
+}
+
 .toast__title {
     color: #363636;
-    margin-bottom: 10px;
     font-weight: 600;
     font-size: 17px;
 }
@@ -99,9 +112,16 @@ ion-icon {
 
 
 @media screen and (max-width:480px) {
-    .toast__title {
-        font-size: 16px;
+    .toast__title_time {
         margin-bottom: 7px;
+    }
+
+    .toast__title{
+        font-size: 16px;
+    }
+
+    .toast__time{
+        font-size: 14px;
     }
 
     .toast__message {

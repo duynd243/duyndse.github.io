@@ -4,6 +4,8 @@ function showToast(type, title, message) {
         error: 'alert-circle'
     };
 
+    const currenTime = new Date().getHours() + ':' + new Date().getMinutes();
+
     var toast_container = document.getElementById("toast__container");
     const toast = document.createElement("div");
     toast.classList.add("toast", `toast--${type}`);
@@ -13,7 +15,10 @@ function showToast(type, title, message) {
         <ion-icon name="${icons[type]}"></ion-icon>
     </div>
     <div class="toast__content">
-        <div class="toast__title">${title}</div>
+        <div class="toast__title_time">
+            <div class="toast__title">${title}</div>
+            <div class="toast__time">${currenTime}</div>
+        </div>
         <div class="toast__message">${message}</div>
     </div>
     <div class="toast__close">
