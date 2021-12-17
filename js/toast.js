@@ -1,10 +1,14 @@
+function pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+}
+
 function showToast(type, title, message) {
     const icons = {
         success: 'checkmark-circle',
         error: 'alert-circle'
     };
 
-    const currenTime = new Date().getHours() + ':' + new Date().getMinutes();
+    const currenTime = pad(new Date().getHours()) + ':' + pad(new Date().getMinutes());
 
     var toast_container = document.getElementById("toast__container");
     const toast = document.createElement("div");
