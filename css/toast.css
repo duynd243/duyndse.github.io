@@ -37,22 +37,19 @@ ion-icon {
 @keyframes appear {
     from {
         opacity: 0;
-        -webkit-transform: translateY(-120%) scale(0);
-        transform: translateY(-120%) scale(0);
+        transform: translateY(-120%);
     }
 
     to {
         opacity: 1;
-        -webkit-transform: translateY(0) scale(1);
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeOut {
     to {
         opacity: 0;
-        -webkit-transform: translateY(-120%) scale(0.8);
-        transform: translateY(-120%) scale(0.8);
+        transform: translateY(-120%);
     }
 }
 
