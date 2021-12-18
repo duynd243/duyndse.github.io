@@ -32,7 +32,7 @@ function showToast(type, title, message) {
     toast_container.appendChild(toast);
     const removeTimeOutId = setTimeout(function () {
         toast_container.removeChild(toast);
-    }, 5000)
+    }, 4700)
 
 
     toast.onclick = function (e) {

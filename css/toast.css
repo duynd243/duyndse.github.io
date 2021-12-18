@@ -18,19 +18,16 @@ ion-icon {
 }
 
 .toast {
-    
     background: white;
     font-family: 'Poppins', sans-serif;
     border-radius: 10px;
-    width: 400px;
+    width: 450px;
     max-width: 100%;
     padding: 25px 20px;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
-
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-    /* transition: all 0.3s linear; */
     animation: appear ease 1s, fadeOut ease 0.6s 4s forwards;
 }
 
@@ -66,6 +63,7 @@ ion-icon {
 }
 
 .toast__content {
+    width: 100%;
     margin: 0px 5px 0px 15px;
 }
 
@@ -74,7 +72,7 @@ ion-icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right:20px;
+    padding-right: 20px;
     margin-bottom: 10px;
 }
 
@@ -117,11 +115,11 @@ ion-icon {
         margin-bottom: 7px;
     }
 
-    .toast__title{
+    .toast__title {
         font-size: 16px;
     }
 
-    .toast__time{
+    .toast__time {
         font-size: 14px;
     }
 
