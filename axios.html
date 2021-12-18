@@ -38,14 +38,16 @@
 
 
         function submitAxios() {
-            if (grecaptcha.getResponse() === '') {
-                showToast("error", "Failed", "Recaptcha is required!");
-                return;
-            }
             document.getElementById('fullName_required').innerText = '';
             document.getElementById('email_required').innerText = '';
             document.getElementById('message_required').innerText = '';
 
+
+            if (grecaptcha.getResponse() === '') {
+                showToast("error", "Failed", "Recaptcha is required!");
+                return;
+            }
+            
             var fullName = document.getElementById('fullName').value;
             var email = document.getElementById('email').value;
             var message = document.getElementById('message').value;
