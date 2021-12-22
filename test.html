@@ -17,6 +17,88 @@
 <body>
     <div id="toast__container">
     </div>
+    <div class="container">
+        <div class="input__container">
+            <input type="text" class="input" placeholder=" ">
+            <div class="label">Name</div>
+        </div>
+        <div class="input__container">
+            <input type="text" class="input" placeholder=" ">
+            <div class="label">Email</div>
+        </div>
+        <div class="input__container">
+            <input type="text" class="input" placeholder=" ">
+            <div class="label">Message</div>
+        </div>
+        <button class="btn">SUBMIT</button>
+    </div>
+
+    <style>
+        * {
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .input {
+            color: rgb(77, 77, 77);
+            border-radius: 7px;
+            outline: none;
+            border: 2px solid #dddd;
+            padding: 12px 15px;
+            font-size: 25px;
+        }
+
+        .input:focus {
+            border: 2px solid rgb(27, 112, 192);
+            background-color: rgb(238, 246, 252);
+        }
+
+        .input:not(:placeholder-shown)+.label,
+        .input:focus+.label {
+            font-size: 18px;
+            top: -10px;
+            left: 7px;
+        }
+        .input:focus+.label {
+            color: rgb(27, 112, 192);
+        }
+
+        .input__container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .label {
+            color: rgb(145, 145, 145);
+            line-height: 100%;
+            font-size: 25px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+            user-select: none;
+            transition: 0.2s linear;
+            z-index: 2;
+        }
+
+        .btn{
+            outline: none;
+            border: none;
+            width: 100%;
+            background: rgb(27, 129, 95);
+            color: white;
+            font-size: 20px;
+            padding: 15px 0;
+            border-radius: 8px;
+        }
+    </style>
 
 
 </body>
