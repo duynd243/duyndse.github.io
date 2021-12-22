@@ -594,6 +594,8 @@ section.projects {
     }
 }
 
+/* CUSTOMIZED SCROLLBAR */
+
 ::-webkit-scrollbar {
     width: 6px
 }
@@ -617,6 +619,8 @@ section.projects {
     animation-iteration-count: infinite;
     animation-direction: alternate
 }
+
+/* ANIMATIONS */
 
 @keyframes handshake-up {
     from {
