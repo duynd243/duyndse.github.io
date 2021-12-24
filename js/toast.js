@@ -10,7 +10,7 @@ function showToast(type, title, message) {
 
     const currenTime = pad(new Date().getHours()) + ':' + pad(new Date().getMinutes());
 
-    var toast_container = document.getElementById("toast__container");
+    const toast_container = document.getElementById("toast__container");
     const toast = document.createElement("div");
     toast.classList.add("toast", `toast--${type}`);
 

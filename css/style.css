@@ -32,7 +32,7 @@ ion-icon {
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: 99;
     animation: fadeIn .4s
 }
 
@@ -45,12 +45,12 @@ ion-icon {
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 4;
+    z-index: 100;
     transition: all .3s linear;
     font-family: Poppins, sans-serif;
-    background: rgb(255 255 255 / 75%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgb(255 255 255);
+    /* backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); */
 }
 
 .nav-mobile .hide-btn {
@@ -113,10 +113,10 @@ ion-icon {
     color: #fff;
     background: linear-gradient(to right, #12418feb 0, #144495fc 100%);
     background: #1b5aa1;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
     padding: 20px 30px;
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
 }
 
 .nav-mobile .nav-footer img {
@@ -314,19 +314,51 @@ section.about-me .btn button:hover {
 
 /* PROJECTS SECTION */
 
-
-section.projects .projects-heading {
-    padding: 40px 0;
-    display: block;
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.2rem;
-    text-align: center;
-    color: #fff;
+section.projects {
+    padding: 7vh 0;
+    background: linear-gradient(45deg, #191e21, #172026);
 }
 
-section.projects {
-    padding-bottom: 40px;
-    background: linear-gradient(45deg, #191e21, #172026);
+
+section.projects .heading {
+    display: inline-block;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section.projects .heading span {
+    position: relative;
+    z-index: 4;
+}
+
+section.projects .heading .underline {
+    opacity: 0.6;
+    position: absolute;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: linear-gradient(to left, rgb(35, 138, 22), rgba(22, 138, 132, 0.8), rgba(59, 125, 187, 0.6),rgba(59, 122, 180, 0.5), rgb(22, 82, 138, 0.2),rgb(22, 82, 138, 0));
+    bottom: 0px;
+    right: -2px;
+    height: 15px;
+    width: 100%;
+}
+
+
+section.projects .desc {
+    width: 500px;
+    max-width: 85%;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    margin: 30px auto 40px auto;
+    text-align: center;
+    color: rgb(228 228 228);
 }
 
 .projects-container {
@@ -374,36 +406,73 @@ section.projects {
 }
 
 .project-info {
-    margin-top: 15px;
     padding: 0 7%;
 }
 
 .project-type {
-    margin: 0 auto;
-    color: #cd5022;
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-weight: 500;
+    display: inline-block;
+    color: rgb(213 82 41);
+    background: linear-gradient( 
+15deg
+ , #ea281e, #d85a5a);
+    background: #f9f3f0;
+    /* border-radius: 0 2px 2px 0; */
+    padding: 2px 15px;
+    font-size: 0.92rem;
     font-family: 'Poppins', sans-serif;
-    padding-bottom: 5px;
+    margin: 18px 0;
+    border-left: 4px solid rgb(197 77 53);
 }
 
 
 .project-name {
     margin: 0 auto;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 500;
     font-family: Poppins, sans-serif;
-    color: #363636;
-    padding-bottom: 15px;
+    color: #303030;
+    line-height: 110%;
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d8d8;
 }
 
 .project-detail {
     margin: 0 auto;
-    font-size: 16px;
+    font-size: 1.02rem;
     font-weight: 300;
     font-family: Poppins, sans-serif;
-    color: #535353;
+    color: rgb(49, 49, 49);
 }
+
+.project-techs{
+    list-style: none;
+    margin: 25px 0;
+    padding: 0;
+}
+
+
+.project-techs > li{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.project-techs .tech-title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+}
+
+
+.project-techs .tech-title ion-icon{
+    font-size: 17px;
+    color: rgb(56, 56, 56);
+}
+
 
 .project-btn {
     padding: 20px 30px;
@@ -422,6 +491,7 @@ section.projects {
 }
 
 .project-btn>a {
+    border-radius: 2px;
     text-decoration: none;
     width: 48%;
     cursor: pointer;
@@ -587,6 +657,14 @@ section.projects {
 
     section.about-me .btn button>.material-icons-outlined {
         font-size: 4.2vw;
+    }
+
+    section.projects .heading {
+        font-size: 8.2vw;
+    }
+
+    section.projects .desc{
+        font-size: 4vw;
     }
 
     .project-item {
