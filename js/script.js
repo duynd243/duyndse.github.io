@@ -12,20 +12,38 @@ function hideNavMobile() {
     for (var c = document.querySelectorAll(".nav-mobile ul li, .social-btn > a"), a = 0; a < c.length; a++) c[a].style.transform = "translate(50%, 100%) scale(0)"
 }
 
-function scrollToSection(e) {
-    const a = $(".about-me:eq(0)"),
-        b = $(".projects:eq(0)");
-    var c;
-    "aboutme" === e ? c = 0 : "projects" == e && (c = b.offset().top), hideNavMobile(), $([document.documentElement, document.body]).animate({
-        scrollTop: c - 65
+function scrollToSection(section) {
+    const aboutme = $(".about-me:eq(0)");
+    const projects = $(".projects:eq(0)");
+    const skills = $(".skills:eq(0)");
+    var target;
+    if (section === 'aboutme')
+        target = 0;
+    else if (section === 'projects')
+        target = projects.offset().top;
+    else if (section === 'skills')
+        target = skills.offset().top;
+    hideNavMobile();
+    $([document.documentElement, document.body]).animate({
+        scrollTop: target - 65
     }, 700)
 }
 
-function test() {
-    var toast = document.getElementsByClassName("toast-container")[0];
-    toast.style.display = "block";
-    setTimeout(function () {
-        toast.style.opacity = 0;
-        toast.style.display = "none";
-    }, 4000)
+
+let tabsList = document.getElementsByClassName("tab_item");
+let skillContentList = document.getElementsByClassName("skills_content");
+
+for (var i = 0; i < tabsList.length; i++) {
+    tabsList[i].addEventListener("click", function () {
+        if (!this.classList.contains("tab--active")) {
+            document.getElementsByClassName("tab--active")[0].classList.remove("tab--active")
+            this.classList.add("tab--active");
+            var arr = Array.prototype.slice.call(tabsList);
+            var tabIndex = arr.indexOf(this);
+            for (var z = 0; z < skillContentList.length; z++) {
+                skillContentList[z].style.display = "none";
+            }
+            skillContentList[tabIndex].style.display = "block";
+        }
+    })
 }

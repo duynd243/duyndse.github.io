@@ -324,7 +324,7 @@ section.projects .heading {
     display: inline-block;
     position: relative;
     font-family: 'Poppins', sans-serif;
-    font-size: 2.2rem;
+    font-size: 2.7rem;
     line-height: 100%;
     text-align: center;
     color: #fff;
@@ -342,7 +342,7 @@ section.projects .heading .underline {
     position: absolute;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    background: linear-gradient(to left, rgb(35, 138, 22), rgba(22, 138, 132, 0.8), rgba(59, 125, 187, 0.6),rgba(59, 122, 180, 0.5), rgb(22, 82, 138, 0.2),rgb(22, 82, 138, 0));
+    background: linear-gradient(to left, rgb(35, 138, 22), rgba(22, 138, 132, 0.8), rgba(59, 125, 187, 0.6), rgba(59, 122, 180, 0.5), rgb(22, 82, 138, 0.2), rgb(22, 82, 138, 0));
     bottom: 0px;
     right: -2px;
     height: 15px;
@@ -395,6 +395,7 @@ section.projects .desc {
     background-size: cover;
     transition: all .3s ease-in-out;
     box-shadow: inset 0 -3em 3em rgb(0 0 0 / 34%), 0 0 0 2px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .project-item:hover .project-img {
@@ -406,23 +407,30 @@ section.projects .desc {
 }
 
 .project-info {
-    padding: 0 7%;
+    padding: 0 6.2%;
 }
 
 .project-type {
+    gap: 6px;
+    align-items: center;
+    width: fit-content;
     font-weight: 500;
-    display: inline-block;
-    color: rgb(213 82 41);
-    background: linear-gradient( 
-15deg
- , #ea281e, #d85a5a);
-    background: #f9f3f0;
-    /* border-radius: 0 2px 2px 0; */
+    display: flex;
+    color: rgb(193 63 50);
+    background: linear-gradient(262deg, #ffebea, #fde5e5);
+    /* background: #f9f3ef; */
     padding: 2px 15px;
     font-size: 0.92rem;
     font-family: 'Poppins', sans-serif;
     margin: 18px 0;
-    border-left: 4px solid rgb(197 77 53);
+    border-left: 4px solid rgb(217 54 31);
+}
+
+.project-type>span
+
+/*google icons*/
+    {
+    font-size: 20px;
 }
 
 
@@ -440,39 +448,53 @@ section.projects .desc {
 
 .project-detail {
     margin: 0 auto;
-    font-size: 1.02rem;
+    font-size: 1.01rem;
     font-weight: 300;
     font-family: Poppins, sans-serif;
     color: rgb(49, 49, 49);
 }
 
-.project-techs{
+.project-techs {
+    background: #f5f5f58a;
     list-style: none;
     margin: 25px 0;
-    padding: 0;
+    padding: 2% 5%;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px;
 }
 
 
-.project-techs > li{
-    margin: 10px 0;
+.project-techs>li {
+    margin: 14px 0;
     display: flex;
+    gap: 10px;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 
-.project-techs .tech-title{
+.project-techs .tech-title {
     display: flex;
     align-items: center;
     gap: 8px;
     font-weight: 400;
+    color: #585858;
 }
 
 
-.project-techs .tech-title ion-icon{
-    font-size: 17px;
-    color: rgb(56, 56, 56);
+.project-techs .tech-title ion-icon {
+    background: #4471c429;
+    font-size: 15px;
+    color: #4471c4;
+    border-radius: 50%;
+    padding: 5px;
 }
 
+.project-techs .tech-detail {
+    text-align: right;
+    color: #696969;
+    font-weight: 500;
+}
 
 .project-btn {
     padding: 20px 30px;
@@ -491,7 +513,7 @@ section.projects .desc {
 }
 
 .project-btn>a {
-    border-radius: 2px;
+    border-radius: 4px;
     text-decoration: none;
     width: 48%;
     cursor: pointer;
@@ -499,7 +521,7 @@ section.projects .desc {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 0;
+    padding: 5.5px 0;
     box-shadow: rgb(0 0 0 / 10%) 0px 10px 15px -3px, rgb(0 0 0 / 5%) 0px 4px 6px -2px;
     transition: all 0.3s ease-in-out;
 }
@@ -518,6 +540,69 @@ section.projects .desc {
     color: white;
     background: #313dd1;
 }
+
+
+/* SECTION TECH SKILLS */
+
+section.skills{
+    font-family: 'Poppins', sans-serif;
+    padding: 7vh 0;
+    width: 100%;
+    height: 100vh;
+}
+
+section.skills .heading{
+    font-size: 2.7rem;
+    line-height: 100%;
+    text-align: center;
+}
+
+section.skills .desc{
+    text-align: center;
+    font-size: 1.15rem;
+    margin: 30px 0;
+    text-align: center;
+}
+
+section.skills .skills_tabs{
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: #F8F9FA;
+}
+
+section.skills .skills_tabs .tab_item{
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 15px 30px;
+    color: #0C65C7;
+    background: #F8F9FA;
+    font-weight: 500;
+    line-height: 100%;
+    transition: background 0.2s linear;
+}
+
+
+section.skills .skills_tabs .tab_item:not(.tab--active):hover{
+    background: #F0F2F4;
+    color: #4A4A4A;
+}
+
+section.skills .skills_tabs .tab--active{
+    color: white;
+    background: #0C65C7;
+}
+
+section.skills .skills_content{
+    display: none;
+    text-align: center;
+    margin: 20px;
+}
+
 
 @media screen and (max-width:1280px) {
     section.about-me .background {
@@ -575,6 +660,7 @@ section.projects .desc {
     }
 
     .project-btn>a {
+        padding: 6px 0;
         width: 100%;
     }
 
@@ -663,12 +749,29 @@ section.projects .desc {
         font-size: 8.2vw;
     }
 
-    section.projects .desc{
+    section.projects .project-type {
+        font-size: 3.5vw;
+    }
+
+
+    section.projects .project-type>span {
+        font-size: 3.8vw;
+    }
+
+    section.projects .desc {
         font-size: 4vw;
     }
 
     .project-item {
         max-width: 90vw;
+    }
+
+    .project-detail {
+        font-size: 3.8vw;
+    }
+
+    .project-btn>a {
+        font-size: 4vw;
     }
 }
 
