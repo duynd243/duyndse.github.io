@@ -544,27 +544,33 @@ section.projects .desc {
 
 /* SECTION TECH SKILLS */
 
-section.skills{
+section.skills {
     font-family: 'Poppins', sans-serif;
     padding: 7vh 0;
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
-section.skills .heading{
+section.skills .heading {
+    background: linear-gradient(216deg, #2c7255, #0076ff);
+    font-weight: 500;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 2.7rem;
     line-height: 100%;
     text-align: center;
 }
 
-section.skills .desc{
+section.skills .desc {
     text-align: center;
     font-size: 1.15rem;
-    margin: 30px 0;
+    max-width: 85%;
+    margin: 30px auto 40px auto;
     text-align: center;
 }
 
-section.skills .skills_tabs{
+section.skills .skills_tabs {
+    max-width: 85vw;
     width: fit-content;
     margin: 0 auto;
     border-radius: 30px;
@@ -575,7 +581,7 @@ section.skills .skills_tabs{
     background: #F8F9FA;
 }
 
-section.skills .skills_tabs .tab_item{
+section.skills .skills_tabs .tab_item {
     cursor: pointer;
     border-radius: 30px;
     padding: 15px 30px;
@@ -587,20 +593,59 @@ section.skills .skills_tabs .tab_item{
 }
 
 
-section.skills .skills_tabs .tab_item:not(.tab--active):hover{
+section.skills .skills_tabs .tab_item:not(.tab--active):hover {
     background: #F0F2F4;
     color: #4A4A4A;
 }
 
-section.skills .skills_tabs .tab--active{
+section.skills .skills_tabs .tab--active {
     color: white;
     background: #0C65C7;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px 0px;
 }
 
-section.skills .skills_content{
+section.skills .skills_content {
+    width: fit-content;
+    max-width: 40vw;
     display: none;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: center;
+    gap: 55px;
+    margin: 60px auto 0 auto;
+    animation: skillFloatUp 0.5s;
+}
+
+section.skills .skills_content .skill_item {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
     text-align: center;
-    margin: 20px;
+    gap: 10px;
+    max-width: 70px;
+}
+
+section.skills .skills_content .skill_item img {
+    height: 60px;
+}
+
+
+section.skills .skills_content .skill_item .name {
+    font-weight: 500;
+    color: rgb(82 77 77);
+}
+
+@keyframes skillFloatUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -623,6 +668,10 @@ section.skills .skills_content{
 @media screen and (max-width:830px) {
     section.about-me .hi {
         font-size: 60px;
+    }
+
+    section.skills .skills_content {
+        max-width: 75vw;
     }
 }
 
@@ -772,6 +821,31 @@ section.skills .skills_content{
 
     .project-btn>a {
         font-size: 4vw;
+    }
+
+    section.skills .heading {
+        font-size: 8.2vw;
+    }
+
+    section.skills .desc {
+        font-size: 4vw;
+    }
+
+    section.skills .skills_tabs .tab_item {
+        font-size: 14px;
+        padding: 3.4vw 6vw;
+    }
+
+    section.skills .skills_content .skill_item img {
+        height: 50px;
+    }
+
+    section.skills .skills_content {
+        gap: 35px;
+    }
+
+    section.skills .skills_content .name {
+        font-size: 15px;
     }
 }
 

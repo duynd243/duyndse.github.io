@@ -16,6 +16,7 @@ function scrollToSection(section) {
     const aboutme = $(".about-me:eq(0)");
     const projects = $(".projects:eq(0)");
     const skills = $(".skills:eq(0)");
+    const contact = $(".contact:eq(0)");
     var target;
     if (section === 'aboutme')
         target = 0;
@@ -23,6 +24,8 @@ function scrollToSection(section) {
         target = projects.offset().top;
     else if (section === 'skills')
         target = skills.offset().top;
+    else if (section === 'contact')
+        target = contact.offset().top;
     hideNavMobile();
     $([document.documentElement, document.body]).animate({
         scrollTop: target - 65
@@ -37,13 +40,14 @@ for (var i = 0; i < tabsList.length; i++) {
     tabsList[i].addEventListener("click", function () {
         if (!this.classList.contains("tab--active")) {
             document.getElementsByClassName("tab--active")[0].classList.remove("tab--active")
+
             this.classList.add("tab--active");
             var arr = Array.prototype.slice.call(tabsList);
             var tabIndex = arr.indexOf(this);
             for (var z = 0; z < skillContentList.length; z++) {
                 skillContentList[z].style.display = "none";
             }
-            skillContentList[tabIndex].style.display = "block";
+            skillContentList[tabIndex].style.display = "flex";
         }
     })
 }
