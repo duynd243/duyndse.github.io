@@ -221,7 +221,7 @@ section.about-me .background {
     background-position-x: 90%;
     background-repeat: no-repeat;
     background-size: 450px;
-    background-image: url(/images/duy-circle.png)
+    background-image: url(/images/duy-circle.webp)
 }
 
 section.about-me {
@@ -317,6 +317,9 @@ section.about-me .btn button:hover {
 section.projects {
     padding: 7vh 0;
     background: linear-gradient(45deg, #191e21, #172026);
+    background: linear-gradient(
+        45deg
+        , #587a9a, #1e3c42);
 }
 
 
@@ -562,7 +565,7 @@ section.skills .heading {
 }
 
 section.skills .desc {
-    text-align: center;
+
     font-size: 1.15rem;
     max-width: 85%;
     margin: 30px auto 40px auto;
@@ -601,7 +604,6 @@ section.skills .skills_tabs .tab_item:not(.tab--active):hover {
 section.skills .skills_tabs .tab--active {
     color: white;
     background: #0C65C7;
-    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px 0px;
 }
 
 section.skills .skills_content {
@@ -614,7 +616,7 @@ section.skills .skills_content {
     justify-content: center;
     gap: 55px;
     margin: 60px auto 0 auto;
-    animation: skillFloatUp 0.5s;
+    animation: floatup 0.5s;
 }
 
 section.skills .skills_content .skill_item {
@@ -636,7 +638,47 @@ section.skills .skills_content .skill_item .name {
     color: rgb(82 77 77);
 }
 
-@keyframes skillFloatUp {
+/* SECTION CONTACT */
+
+section.contact {
+    background: linear-gradient(45deg, rgb(25, 30, 33), rgb(23, 32, 38));
+    background: linear-gradient(45deg, #3288bf, #1a5a2a);
+    height: 100vh;
+}
+
+footer {
+    color: #262727;
+    background: #172026;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+footer .wrapper {
+    padding: 15px 0;
+    background: white;
+}
+
+footer .heart {
+    margin: 0 4px;
+    width: 15px;
+    display: inline-block;
+    animation-duration: 1s;
+    animation-name: infiniteZoom;
+    animation-iteration-count: infinite;
+    animation-direction: alternate
+}
+
+@keyframes infiniteZoom {
+    from {
+        transform: scale(0.95);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes floatup {
     from {
         opacity: 0;
         transform: translateY(100%);
