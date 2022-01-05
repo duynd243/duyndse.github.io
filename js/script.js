@@ -111,6 +111,9 @@ contactForm.addEventListener("submit", (e) => {
         return;
     }
 
+    const submitBtn = document.querySelector("section.contact .contact_form button");
+    const SUBMIT_DEFAULT_TEXT = submitBtn.innerText;
+    submitBtn.innerHTML = `Sending <div class="loader"></div>`;
     var params = new URLSearchParams(new FormData(contactForm)).toString();
     var requestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
 
@@ -122,7 +125,7 @@ contactForm.addEventListener("submit", (e) => {
             header: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }
     ).then(function (response) {
-        console.log(response.data);
+        submitBtn.innerText = SUBMIT_DEFAULT_TEXT;
         var recaptcha_status = response.data["recaptcha_status"];
         var sendmail_status = response.data["sendmail_status"];
         var isValidInput = response.data["isValidInput"];
@@ -154,6 +157,7 @@ contactForm.addEventListener("submit", (e) => {
         }
 
     }).catch(function (err) {
+        submitBtn.innerText = SUBMIT_DEFAULT_TEXT;
         console.log(err);
         showToast("error", "Failed", err)
     });
