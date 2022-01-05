@@ -30,6 +30,10 @@ function showToast(type, title, message) {
     </div>
 `;
     toast_container.appendChild(toast);
+    if (type === "success")
+        document.getElementById("audio_success").play();
+    else if (type === "error")
+        document.getElementById("audio_error").play();
     const removeTimeOutId = setTimeout(function () {
         toast_container.removeChild(toast);
     }, 4700)

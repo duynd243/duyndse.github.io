@@ -108,6 +108,7 @@ contactForm.addEventListener("submit", (e) => {
         check++;
     }
     if (check > 0) {
+        document.getElementById("audio_error").play();
         return;
     }
 
@@ -163,3 +164,11 @@ contactForm.addEventListener("submit", (e) => {
     });
     grecaptcha.reset();
 });
+
+
+function showFacebookLinks() {
+    var facebook_links = document.getElementById("facebook_links");
+    if (facebook_links.style.display === "block")
+        facebook_links.style.display = "none";
+    else facebook_links.style.display = "block";
+}

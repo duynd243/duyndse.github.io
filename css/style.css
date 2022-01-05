@@ -661,6 +661,7 @@ section.contact .desc {
 }
 
 section.contact .contact_socicials_form {
+    position: relative;
     overflow: hidden;
     border-radius: 10px;
     width: 500px;
@@ -688,6 +689,47 @@ section.contact .contact_socials>a {
     text-align: center;
     color: rgb(54, 54, 54);
     text-decoration: none;
+}
+.facebook_links{
+    display: none;
+    animation: fadeIn 0.8s;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 8px;
+    
+    top: 90px;
+    right: 2px;
+    position: absolute;
+    z-index: 5;
+}
+.facebook_links img{
+   width: 18px;
+}
+
+.facebook_links > a{
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #525252;
+}
+
+.facebook_links > a:hover{
+    background: #e5fafd;
+}
+
+.facebook_links .btn{
+    background: #2785f0;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 8px 0;
+    font-size: 1rem;
 }
 
 section.contact .contact_socials ion-icon {

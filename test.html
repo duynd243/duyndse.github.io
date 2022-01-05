@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <audio id="audio_success" src="sounds/iphone-notification-fx.wav"></audio>
     <div id="toast__container">
     </div>
     <div class="container">
@@ -39,7 +40,7 @@
             box-sizing: border-box;
         }
 
-        body{
+        body {
             height: 70vh;
             display: flex;
             justify-content: center;
@@ -66,6 +67,7 @@
             top: -10px;
             left: 7px;
         }
+
         .input:focus+.label {
             color: rgb(27, 112, 192);
         }
@@ -88,7 +90,7 @@
             z-index: 2;
         }
 
-        .btn{
+        .btn {
             outline: none;
             border: none;
             width: 100%;

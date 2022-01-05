@@ -416,10 +416,20 @@
                     <ion-icon name="mail"></ion-icon>
                     <span>Email</span>
                 </a>
-                <a href="https://www.facebook.com/duynd511" target="_blank">
+                <a onclick="showFacebookLinks()">
                     <ion-icon name="logo-facebook"></ion-icon>
                     <span>Facebook</span>
                 </a>
+            </div>
+            <div class="facebook_links" id="facebook_links">
+                <a class="facebook_profile" href="https://www.facebook.com/duynd511" target="_blank">
+                    <img src="images/facebook.png">
+                    Facebook Profile</a>
+                <a class="messenger" href="https://m.me/duynd511" target="_blank">
+                    <img src="images/messenger.svg"> Messenger</a>
+                <div class="btn" onclick="showFacebookLinks()"><span class="material-icons-outlined">
+                        keyboard_arrow_up
+                    </span>Hide</div>
             </div>
             <form class="contact_form" id="contact_form" method="POST">
                 <div>
@@ -469,7 +479,7 @@
 
                 <button class="send_Btn" type="submit">Send Message</button>
                 <!-- <button class="send_Btn" type="submit">Sending <div class="loader"></div></button> -->
-                
+
             </form>
         </div>
 
@@ -481,8 +491,10 @@
             <small>&copy; Copyright 2022</small>
         </div>
     </footer>
-
+    <audio id="audio_success" src="sounds/iphone-notification-fx.wav"></audio>
+    <audio id="audio_error" src="sounds/Error.mp3"></audio>
     <script src="js/script.js"></script>
+
 
 </body>
 
