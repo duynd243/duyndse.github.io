@@ -15,6 +15,9 @@
         href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
         rel="stylesheet">
 
+    <!--GOOGLE RECAPTCHA-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!--JQUERY-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -24,9 +27,7 @@
     <!--CSS + JS-->
     <link rel="stylesheet" href="css/toast.css">
     <script src="js/toast.js"></script>
-
     <link rel="stylesheet" href="css/style.css">
-
 
     <!--FAVICON-->
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
@@ -403,53 +404,73 @@
     </section>
 
     <section class="contact">
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <form class="contact_form" id="contact_form" method="POST">
-            <div>
-                <div class="title">Your name</div>
-                <div class="input_wrapper">
-
-                    <input type="text" class="input" id="nameInput" name="fullName" placeholder="Enter your name">
-                    <ion-icon name="person"></ion-icon>
-                </div>
-                <div class="error_message" id="nameError">
-                    <div>
-                        <ion-icon name="alert-circle"></ion-icon>
-                        <span></span>
-                    </div>
-                </div>
-
-            </div>
-            <div>
-                <div class="title">Email</div>
-                <div class="input_wrapper">
-                    <input type="text" class="input" id="emailInput" name="email" placeholder="yourmail@example.com">
+        <div class="heading">Get in touch</div>
+        <div class="desc">Fill out the form below to contact me and let's work together.</div>
+        <div class="contact_socicials_form">
+            <div class="contact_socials">
+                <a href="tel:+84902167344">
+                    <ion-icon name="call"></ion-icon>
+                    <span>Call me</span>
+                </a>
+                <a href="mailto:duyndse@gmail.com">
                     <ion-icon name="mail"></ion-icon>
-                </div>
-                <div class="error_message" id="emailError">
-                    <div>
-                        <ion-icon name="alert-circle"></ion-icon><span></span>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.facebook.com/duynd511" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <form class="contact_form" id="contact_form" method="POST">
+                <div>
+                    <div class="title">Your name <span style="color: #ea4444;">*</span></div>
+                    <div class="input_wrapper">
+                        <input type="text" class="input" id="nameInput" name="fullName" placeholder="Enter your name">
+                        <ion-icon name="person"></ion-icon>
                     </div>
-                </div>
-            </div>
-            <div>
-                <div class="title">Message</div>
-                <div class="input_wrapper">
-                    <textarea name="message" id="messageInput" class="input"
-                        placeholder="Type anything you want me to see"></textarea>
-                </div>
-                <div class="error_message" id="messageError">
-                    <div>
-                        <ion-icon name="alert-circle"></ion-icon><span></span>
+                    <div class="error_message" id="nameError">
+                        <div>
+                            <ion-icon name="alert-circle"></ion-icon>
+                            <span></span>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="recaptcha_wrapper">
-                <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
-            </div>
 
-            <button type="submit">Send Message</button>
-        </form>
+                </div>
+                <div>
+                    <div class="title">Email <span style="color: #ea4444;">*</span></div>
+                    <div class="input_wrapper">
+                        <input type="text" class="input" id="emailInput" name="email"
+                            placeholder="yourmail@example.com">
+                        <ion-icon name="mail"></ion-icon>
+                    </div>
+                    <div class="error_message" id="emailError">
+                        <div>
+                            <ion-icon name="alert-circle"></ion-icon><span></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="title">Message <span style="color: #ea4444;">*</span></div>
+                    <div class="input_wrapper">
+                        <textarea name="message" id="messageInput" class="input"
+                            placeholder="Write your message here"></textarea>
+
+                    </div>
+
+                    <div class="error_message" id="messageError">
+                        <div>
+                            <ion-icon name="alert-circle"></ion-icon><span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recaptcha_wrapper">
+                    <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
 
     </section>
     <footer>

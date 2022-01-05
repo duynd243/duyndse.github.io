@@ -28,7 +28,7 @@ function scrollToSection(section) {
         target = contact.offset().top;
     hideNavMobile();
     $([document.documentElement, document.body]).animate({
-        scrollTop: target - 65
+        scrollTop: target - 60
     }, 700)
 }
 function validateEmail(emailAdress) {
@@ -93,18 +93,18 @@ contactForm.addEventListener("submit", (e) => {
     const messageTxt = document.getElementById("messageInput").value;
     var check = 0;
     if (nameTxt.trim() === "") {
-        showErrorMessage("nameInput", "nameError", "Please input your name.");
+        showErrorMessage("nameInput", "nameError", "Please enter your name.");
         check++;
     }
     if (emailTxt.trim() === "") {
-        showErrorMessage("emailInput", "emailError", "Please input your email.");
+        showErrorMessage("emailInput", "emailError", "Please enter your email.");
         check++;
     } else if (!validateEmail(emailTxt.trim())) {
-        showErrorMessage("emailInput", "emailError", "Please input a valid email.");
+        showErrorMessage("emailInput", "emailError", "Please enter a valid email.");
         check++;
     }
     if (messageTxt.trim() === "") {
-        showErrorMessage("messageInput", "messageError", "Please input your message.");
+        showErrorMessage("messageInput", "messageError", "Please enter your message.");
         check++;
     }
     if (check > 0) {
@@ -134,15 +134,15 @@ contactForm.addEventListener("submit", (e) => {
                 var emailError = response.data["emailError"];
                 var messageError = response.data["messageError"];
                 if (nameError === "empty") {
-                    showErrorMessage("nameInput", "nameError", "Please input your name.");
+                    showErrorMessage("nameInput", "nameError", "Please enter your name.");
                 }
                 if (emailError === "empty") {
-                    showErrorMessage("emailInput", "emailError", "Please input your email.");
+                    showErrorMessage("emailInput", "emailError", "Please enter your email.");
                 } else if (emailError === "invalid") {
-                    showErrorMessage("emailInput", "emailError", "Please input a valid email.");
+                    showErrorMessage("emailInput", "emailError", "Please enter a valid email.");
                 }
                 if (messageError === "empty") {
-                    showErrorMessage("messageInput", "messageError", "Please input your message.");
+                    showErrorMessage("messageInput", "messageError", "Please enter your message.");
                 }
             } else {
                 if (sendmail_status === 202) {

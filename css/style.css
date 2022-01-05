@@ -638,30 +638,95 @@ section.skills .skills_content .skill_item .name {
 
 /* SECTION CONTACT */
 
-.recaptcha_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 section.contact {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, #245e83, #1a375a);
+    background: linear-gradient(45deg, #5a89a8, #123e73);
+    background: linear-gradient(45deg, rgb(114, 90, 168), rgb(44 50 113));
     padding: 7vh 0;
+}
+
+section.contact .heading {
+    color: white;
+    font-size: 2.7rem;
+    line-height: 100%;
+    text-align: center;
+}
+
+
+section.contact .desc {
+    color: rgb(231, 231, 231);
+    font-size: 1.15rem;
+    width: 400px;
+    max-width: 85%;
+    margin: 30px auto 40px auto;
+    text-align: center;
+}
+
+section.contact .contact_socicials_form {
+    overflow: hidden;
+    border-radius: 10px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+section.contact .contact_socials {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #e3f0ff;
+    overflow: hidden;
+    /* margin-bottom: 15px; */
+}
+
+section.contact .contact_socials>a {
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+}
+
+section.contact .contact_socials ion-icon {
+    font-size: 1.8rem;
+}
+
+section.contact .contact_socials ion-icon[name="call"] {
+    color: rgb(27 169 75);
+}
+
+section.contact .contact_socials ion-icon[name="mail"] {
+    color: #e58629;
+}
+
+section.contact .contact_socials ion-icon[name="logo-facebook"] {
+    color: #1447a5;
+}
+
+section.contact .contact_socials span {
+    font-size: 0.95rem;
+}
+
+section.contact .contact_socials>a:hover {
+    background: #cbe0ff;
 }
 
 section.contact .contact_form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
     margin: 0 auto;
     background: white;
     padding: 30px 35px;
-    border-radius: 10px;
 }
 
 section.contact .contact_form>div {
+    position: relative;
     width: 100%;
     margin-bottom: 15px;
 }
@@ -680,10 +745,10 @@ section.contact .contact_form .error_message {
     padding: 4px 10px;
     color: rgb(196 49 55);
     font-size: 0.9rem;
-    animation: error 0.4s;
+    animation: errorMessage 0.4s;
 }
 
-@keyframes error {
+@keyframes errorMessage {
     from {
         transform: scale(0);
         opacity: 0;
@@ -715,7 +780,8 @@ section.contact .contact_form .input_wrapper ion-icon {
 }
 
 section.contact .contact_form .input {
-    padding: 8px 0 8px 45px;
+    color: #212e36;
+    padding: 8px 15px 8px 45px;
     font-size: 1rem;
     border-radius: 6px;
     outline: none;
@@ -741,6 +807,7 @@ section.contact .contact_form .input:focus+ion-icon {
     color: #2376d4;
 }
 
+
 section.contact .contact_form textarea {
     min-height: 120px;
     height: 120px;
@@ -748,11 +815,17 @@ section.contact .contact_form textarea {
     padding-left: 15px !important;
 }
 
+.recaptcha_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 section.contact .contact_form button {
     cursor: pointer;
     border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 6px;
     background: rgb(64, 35, 192);
     font-size: 1.1rem;
     font-weight: 500;
@@ -763,7 +836,7 @@ section.contact .contact_form button {
 }
 
 section.contact .contact_form button:hover {
-    background: rgb(49, 25, 156);
+    background: rgb(50, 23, 173);
 }
 
 
@@ -926,6 +999,10 @@ footer .heart {
     section.about-me .hi {
         font-size: 45px;
     }
+
+    section.contact .contact_socicials_form {
+        width: 85vw;
+    }
 }
 
 @media screen and (max-width:480px) {
@@ -1010,6 +1087,27 @@ footer .heart {
 
     section.skills .skills_content .name {
         font-size: 15px;
+    }
+
+
+    section.contact .heading {
+        font-size: 8.2vw;
+    }
+
+    section.contact .desc {
+        font-size: 4vw;
+    }
+
+    section.contact .contact_socials ion-icon {
+        font-size: 1.4rem;
+    }
+
+    section.contact .contact_socials span {
+        font-size: 0.85rem;
+    }
+
+    section.contact .contact_form {
+        padding: 25px 6vw;
     }
 }
 
