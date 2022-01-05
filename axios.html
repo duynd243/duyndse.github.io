@@ -23,21 +23,26 @@
 <body>
     <div id="toast__container">
     </div>
+    <form id="form">
+        <input type="text" name="fullName" id="fullName" placeholder="Name">
+        <div id="fullName_required"></div><br>
+        <input type="text" name="email" id="email" placeholder="Email">
+        <div id="email_required"></div><br>
+        <input type="text" name="message" id="message" placeholder="Message">
+        <div id="message_required"></div><br>
+        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
+        <br />
 
-    <input type="text" id="fullName" placeholder="Name">
-    <div id="fullName_required"></div><br>
-    <input type="text" id="email" placeholder="Email">
-    <div id="email_required"></div><br>
-    <input type="text" id="message" placeholder="Message">
-    <div id="message_required"></div><br>
-    <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
-    <br />
-    <button onclick="submitAxios()">Submit</button>
+
+        <input type="submit" value="Submit">
+    </form>
+
 
     <script>
-        
-
-        function submitAxios() {
+        let contactForm = document.getElementById("form");
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            var formData = new FormData(contactForm);
             document.getElementById('fullName_required').innerText = '';
             document.getElementById('email_required').innerText = '';
             document.getElementById('message_required').innerText = '';
@@ -47,7 +52,7 @@
                 showToast("error", "Failed", "Recaptcha is required!");
                 return;
             }
-            
+
             var fullName = document.getElementById('fullName').value;
             var email = document.getElementById('email').value;
             var message = document.getElementById('message').value;
@@ -63,14 +68,11 @@
                     document.getElementById('message_required').innerText = 'Message is required';
                 return;
             }
-            const params = new URLSearchParams();
-            params.append("g-recaptcha-response", grecaptcha.getResponse());
-            params.append("email", email);
-            params.append("fullName", fullName);
-            params.append("message", message);
-
-            axios.post('https://porfolio-sendmail.herokuapp.com/api/send',
-                params,
+           
+            var reuquestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
+            reuquestUrl = 'http://localhost:8080/portfolio_sendmail_war/api/send';
+            axios.post(reuquestUrl,
+            formData,
                 {
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
                 }).then(function (response) {
@@ -92,7 +94,9 @@
                     showToast("error", "Failed", err)
                 });
             grecaptcha.reset();
-        }
+        });
+
+
     </script>
 </body>
 

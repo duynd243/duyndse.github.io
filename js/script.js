@@ -31,7 +31,14 @@ function scrollToSection(section) {
         scrollTop: target - 65
     }, 700)
 }
-
+function validateEmail(emailAdress) {
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailAdress.match(regexEmail)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 let tabsList = document.getElementsByClassName("tab_item");
 let skillContentList = document.getElementsByClassName("skills_content");
@@ -51,3 +58,104 @@ for (var i = 0; i < tabsList.length; i++) {
         }
     })
 }
+
+let inputs = document.querySelectorAll("section.contact .contact_form .input");
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("focus", function () {
+        this.classList.remove("input--error");
+        var inputId = this.id;
+        if (inputId === "nameInput") {
+            document.getElementById("nameError").style.display = "none";
+        } else if (inputId === "emailInput") {
+            document.getElementById("emailError").style.display = "none";
+        } else if (inputId === "messageInput") {
+            document.getElementById("messageError").style.display = "none";
+        }
+    })
+}
+
+function showErrorMessage(inputId, errorId, message) {
+    document.getElementById(inputId).classList.add("input--error");
+    document.getElementById(errorId).style.display = "block";
+    document.querySelector(`#${errorId} span`).innerText = message;
+}
+
+let contactForm = document.getElementById("contact_form");
+contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (grecaptcha.getResponse() === '') {
+        showToast("error", "Failed", "Recaptcha is required!");
+        return;
+    }
+    const nameTxt = document.getElementById("nameInput").value;
+    const emailTxt = document.getElementById("emailInput").value;
+    const messageTxt = document.getElementById("messageInput").value;
+    var check = 0;
+    if (nameTxt.trim() === "") {
+        showErrorMessage("nameInput", "nameError", "Please input your name.");
+        check++;
+    }
+    if (emailTxt.trim() === "") {
+        showErrorMessage("emailInput", "emailError", "Please input your email.");
+        check++;
+    } else if (!validateEmail(emailTxt.trim())) {
+        showErrorMessage("emailInput", "emailError", "Please input a valid email.");
+        check++;
+    }
+    if (messageTxt.trim() === "") {
+        showErrorMessage("messageInput", "messageError", "Please input your message.");
+        check++;
+    }
+    if (check > 0) {
+        return;
+    }
+
+    var params = new URLSearchParams(new FormData(contactForm)).toString();
+    var requestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
+
+    axios(
+        {
+            method: 'post',
+            url: requestUrl,
+            data: params,
+            header: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }
+    ).then(function (response) {
+        console.log(response.data);
+        var recaptcha_status = response.data["recaptcha_status"];
+        var sendmail_status = response.data["sendmail_status"];
+        var isValidInput = response.data["isValidInput"];
+        if (recaptcha_status === "empty" || !recaptcha_status) {
+            showToast("error", "Failed", "Error occurred with repcatcha. Please try again!");
+        } else if (recaptcha_status) {
+            if (!isValidInput) {
+                var nameError = response.data["nameError"];
+                var emailError = response.data["emailError"];
+                var messageError = response.data["messageError"];
+                if (nameError === "empty") {
+                    showErrorMessage("nameInput", "nameError", "Please input your name.");
+                }
+                if (emailError === "empty") {
+                    showErrorMessage("emailInput", "emailError", "Please input your email.");
+                } else if (emailError === "invalid") {
+                    showErrorMessage("emailInput", "emailError", "Please input a valid email.");
+                }
+                if (messageError === "empty") {
+                    showErrorMessage("messageInput", "messageError", "Please input your message.");
+                }
+            } else {
+                if (sendmail_status === 202) {
+                    showToast("success", "Success", "If you can't find the email, please check your spam and promotional mailboxes.");
+                } else {
+                    showToast("error", "Failed", "Error occurred with mail sending. Please try again!");
+                }
+            }
+        }
+
+    }).catch(function (err) {
+        console.log(err);
+        showToast("error", "Failed", err)
+    });
+    grecaptcha.reset();
+});
