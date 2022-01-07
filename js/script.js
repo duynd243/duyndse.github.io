@@ -19,7 +19,7 @@ function scrollToSection(section) {
     const contact = $(".contact:eq(0)");
     var target;
     if (section === 'aboutme')
-        target = 0;
+        target = 0; // scroll to top
     else if (section === 'projects')
         target = projects.offset().top;
     else if (section === 'skills')
@@ -108,12 +108,12 @@ contactForm.addEventListener("submit", (e) => {
         check++;
     }
     if (check > 0) {
-        document.getElementById("audio_error").play();
+        new Audio("sounds/Error.mp3").play();
         return;
     }
 
     const submitBtn = document.querySelector("section.contact .contact_form button");
-    const SUBMIT_DEFAULT_TEXT = submitBtn.innerText;
+    const SUBMIT_DEFAULT_TEXT = submitBtn.innerHTML;
     submitBtn.innerHTML = `Sending <div class="loader"></div>`;
     var params = new URLSearchParams(new FormData(contactForm)).toString();
     var requestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
@@ -126,7 +126,7 @@ contactForm.addEventListener("submit", (e) => {
             header: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }
     ).then(function (response) {
-        submitBtn.innerText = SUBMIT_DEFAULT_TEXT;
+        submitBtn.innerHTML = SUBMIT_DEFAULT_TEXT;
         var recaptcha_status = response.data["recaptcha_status"];
         var sendmail_status = response.data["sendmail_status"];
         var isValidInput = response.data["isValidInput"];
@@ -158,7 +158,7 @@ contactForm.addEventListener("submit", (e) => {
         }
 
     }).catch(function (err) {
-        submitBtn.innerText = SUBMIT_DEFAULT_TEXT;
+        submitBtn.innerHTML = SUBMIT_DEFAULT_TEXT;
         console.log(err);
         showToast("error", "Failed", err)
     });

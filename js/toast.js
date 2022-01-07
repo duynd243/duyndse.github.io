@@ -3,6 +3,8 @@ function pad(d) {
 }
 
 function showToast(type, title, message) {
+    var successSound = new Audio("sounds/iphone-notification-fx.wav");
+    var errorSound = new Audio("sounds/Error.mp3");
     const icons = {
         success: 'checkmark-circle',
         error: 'alert-circle'
@@ -31,9 +33,9 @@ function showToast(type, title, message) {
 `;
     toast_container.appendChild(toast);
     if (type === "success")
-        document.getElementById("audio_success").play();
+        successSound.play();
     else if (type === "error")
-        document.getElementById("audio_error").play();
+        errorSound.play();
     const removeTimeOutId = setTimeout(function () {
         toast_container.removeChild(toast);
     }, 4700)

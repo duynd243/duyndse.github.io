@@ -155,16 +155,35 @@ nav ul {
 }
 
 nav ul li {
+    user-select: none;
+    opacity: 0.9;
+    position: relative;
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 500;
-    border-bottom: 0 solid rgba(255, 255, 255, 0);
     transition: all .2s ease-in-out
 }
 
+nav ul li span::after {
+    position: absolute;
+    content: "";
+    bottom: -3px;
+    border-radius: 2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #2888f4;
+    transition: all 0.2s ease-in-out;
+}
+
 nav ul li:hover {
-    font-size: 1.2em;
-    border-bottom: 3px solid #2888f4
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+nav ul li:hover span::after {
+    width: 100%;
+    z-index: -1;
 }
 
 nav .nav-social {
@@ -302,11 +321,12 @@ section.about-me .btn button {
     border: none;
     background: #0468d7;
     transition: all .3s linear;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    box-shadow: 0 4px 6px 0 rgb(0 118 255 / 39%);
 }
 
 section.about-me .btn button:hover {
     opacity: 0.9;
+
 }
 
 
@@ -454,6 +474,7 @@ section.projects .desc {
 }
 
 .project-techs {
+    user-select: none;
     background: #f5f5f58a;
     list-style: none;
     margin: 25px 0;
@@ -578,6 +599,7 @@ section.skills .skills_tabs {
     align-items: center;
     justify-content: center;
     background: #F8F9FA;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 }
 
 section.skills .skills_tabs .tab_item {
@@ -612,7 +634,7 @@ section.skills .skills_content {
     justify-content: center;
     gap: 55px;
     margin: 60px auto 0 auto;
-    animation: floatup 0.5s;
+    animation: floatup 0.5s forwards;
 }
 
 section.skills .skills_content .skill_item {
@@ -679,6 +701,7 @@ section.contact .contact_socials {
 }
 
 section.contact .contact_socials>a {
+    cursor: pointer;
     padding: 15px 0;
     width: 100%;
     display: flex;
@@ -690,25 +713,38 @@ section.contact .contact_socials>a {
     color: rgb(54, 54, 54);
     text-decoration: none;
 }
-.facebook_links{
+
+.facebook_links {
     display: none;
-    animation: fadeIn 0.8s;
+    animation: riseDown 0.6s forwards;
     overflow: hidden;
     background: rgb(255, 255, 255);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     border-radius: 8px;
-    
-    top: 90px;
+    /* top: 90px; */
     right: 2px;
     position: absolute;
     z-index: 5;
 }
-.facebook_links img{
-   width: 18px;
+
+@keyframes riseDown {
+    from {
+        opacity: 0;
+        top: 20px;
+    }
+
+    to {
+        opacity: 1;
+        top: 90px;
+    }
 }
 
-.facebook_links > a{
+.facebook_links img {
+    width: 18px;
+}
+
+.facebook_links>a {
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -717,11 +753,11 @@ section.contact .contact_socials>a {
     color: #525252;
 }
 
-.facebook_links > a:hover{
+.facebook_links>a:hover {
     background: #e5fafd;
 }
 
-.facebook_links .btn{
+.facebook_links .btn {
     background: #2785f0;
     color: rgb(255, 255, 255);
     display: flex;
@@ -745,7 +781,7 @@ section.contact .contact_socials ion-icon[name="mail"] {
 }
 
 section.contact .contact_socials ion-icon[name="logo-facebook"] {
-    color: #1447a5;
+    color: #1955c5;
 }
 
 section.contact .contact_socials span {
@@ -772,6 +808,7 @@ section.contact .contact_form>div {
 }
 
 section.contact .contact_form .title {
+    user-select: none;
     font-weight: 500;
     color: rgb(73, 73, 73);
     margin-bottom: 6px;
@@ -808,6 +845,15 @@ section.contact .contact_form .error_message>div {
 
 section.contact .contact_form .input_wrapper {
     position: relative;
+}
+
+section.contact .contact_form .input_wrapper .input_icon {
+    font-size: 19px;
+    color: rgb(85, 85, 85);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 15px;
 }
 
 section.contact .contact_form .input_wrapper ion-icon {
@@ -861,7 +907,12 @@ section.contact .contact_form textarea {
     align-items: center;
 }
 
+.send_icon {
+    font-size: 0.95rem;
+}
+
 section.contact .contact_form button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -925,6 +976,7 @@ footer {
 }
 
 footer .wrapper {
+    user-select: none;
     padding: 15px 0;
     background: white;
 }

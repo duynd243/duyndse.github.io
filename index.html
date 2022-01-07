@@ -48,10 +48,10 @@
                 <img src="images/dn-logo.png" alt="" srcset="">
             </div>
             <ul>
-                <li onclick="scrollToSection('aboutme')">About me</li>
-                <li onclick="scrollToSection('projects')">Projects</li>
-                <li onclick="scrollToSection('skills')">Skills</li>
-                <li onclick="scrollToSection('contact')">Contact</li>
+                <li onclick="scrollToSection('aboutme')"><span>About me</span></li>
+                <li onclick="scrollToSection('projects')"><span>Projects</span></li>
+                <li onclick="scrollToSection('skills')"><span>Skills</span></li>
+                <li onclick="scrollToSection('contact')"><span>Contact</span></li>
             </ul>
             <div class="nav-social">
                 <a class="cv-icon" href="/cv" target="_blank">
@@ -351,7 +351,7 @@
             </div>
             <div class="skill_item">
                 <img src="images/techs/cloudflare.webp" alt="" class="img">
-                <div class="name">CloudFlare</div>
+                <div class="name">Cloudflare</div>
             </div>
             <div class="skill_item">
                 <img src="images/techs/github.webp" alt="" class="img">
@@ -437,6 +437,7 @@
                     <div class="input_wrapper">
                         <input type="text" class="input" id="nameInput" name="fullName" placeholder="Enter your name">
                         <ion-icon name="person"></ion-icon>
+
                     </div>
                     <div class="error_message" id="nameError">
                         <div>
@@ -477,7 +478,9 @@
                     <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
                 </div>
 
-                <button class="send_Btn" type="submit">Send Message</button>
+                <button class="send_Btn" type="submit"><span class="material-icons-round send_icon">
+                        send
+                    </span>Send Message</button>
                 <!-- <button class="send_Btn" type="submit">Sending <div class="loader"></div></button> -->
 
             </form>
@@ -491,8 +494,7 @@
             <small>&copy; Copyright 2022</small>
         </div>
     </footer>
-    <audio id="audio_success" src="sounds/iphone-notification-fx.wav"></audio>
-    <audio id="audio_error" src="sounds/Error.mp3"></audio>
+
     <script src="js/script.js"></script>
 
 
