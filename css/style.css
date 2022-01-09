@@ -336,36 +336,38 @@ section.projects {
     padding: 7vh 0;
     background: linear-gradient(45deg, #191e21, #172026);
     background: linear-gradient(45deg, #587a9a, #1e3c42);
+    background: linear-gradient(45deg, #26527c, #1f2627);
 }
 
 
 section.projects .heading {
-    display: inline-block;
+    width: fit-content;
     position: relative;
     font-family: 'Poppins', sans-serif;
     font-size: 2.7rem;
     line-height: 100%;
     text-align: center;
     color: #fff;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
 }
 
-section.projects .heading span {
-    position: relative;
-    z-index: 4;
-}
-
-section.projects .heading .underline {
+section.projects .heading::after {
+    content: "";
     opacity: 0.6;
     position: absolute;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background: linear-gradient(to left, rgb(35, 138, 22), rgba(22, 138, 132, 0.8), rgba(59, 125, 187, 0.6), rgba(59, 122, 180, 0.5), rgb(22, 82, 138, 0.2), rgb(22, 82, 138, 0));
+
     bottom: 0px;
     right: -2px;
     height: 15px;
     width: 100%;
+}
+
+section.projects .heading span {
+    position: relative;
+    z-index: 4;
 }
 
 
@@ -568,7 +570,6 @@ section.skills {
     font-family: 'Poppins', sans-serif;
     padding: 7vh 0;
     width: 100%;
-    /* height: 100vh; */
 }
 
 section.skills .heading {
@@ -662,16 +663,36 @@ section.contact {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(45deg, #5a89a8, #123e73);
     background: linear-gradient(45deg, rgb(114, 90, 168), rgb(44 50 113));
+    background: linear-gradient(45deg, #32354C, #1E2035);
     padding: 7vh 0;
 }
 
 section.contact .heading {
+    width: fit-content;
+    position: relative;
     color: white;
     font-size: 2.7rem;
     line-height: 100%;
-    text-align: center;
+    margin: 0 auto;
 }
 
+section.contact .heading span {
+    position: relative;
+    z-index: 4;
+}
+
+section.contact .heading::after {
+    content: "";
+    opacity: 0.6;
+    position: absolute;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background: linear-gradient(to left, rgb(26 231 0 / 83%), rgb(49 161 155 / 84%), rgb(55 105 151), rgba(59, 122, 180, 0.5), rgb(22, 82, 138, 0.2), rgb(22, 82, 138, 0));
+    bottom: 0px;
+    right: 1.5px;
+    height: 20px;
+    width: 100%;
+}
 
 section.contact .desc {
     color: rgb(231, 231, 231);
@@ -989,6 +1010,27 @@ footer .heart {
     animation-name: infiniteZoom;
     animation-iteration-count: infinite;
     animation-direction: alternate
+}
+
+footer .footer_name {
+    position: relative;
+}
+
+footer .footer_name span {
+    position: relative;
+    z-index: 2;
+    color: rgb(39, 39, 39);
+}
+
+footer .footer_name::after {
+    position: absolute;
+    content: "";
+    background: rgb(231, 231, 231);
+    top: 40%;
+    bottom: 0;
+    right: -3%;
+    left: 6%;
+    border-radius: 1px;
 }
 
 @keyframes infiniteZoom {
