@@ -1,25 +1,24 @@
 function showNavMobile() {
-    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
-    document.getElementsByClassName("nav-overlay")[0].style.display = "block";
-    document.getElementsByClassName("nav-mobile")[0].style.transform = "translateX(0%)";
+    document.querySelector('body').style.overflow = 'hidden';
+    document.querySelector(".nav-overlay").style.display = "block";
+    document.querySelector(".nav-mobile").style.transform = "translateX(0%)";
     for (var c = document.querySelectorAll(".nav-mobile ul li, .social-btn > a"), a = 0; a < c.length; a++) c[a].style.transform = "translate(0%, 0%) scale(1)"
 }
 
 function hideNavMobile() {
-    document.getElementsByTagName('body')[0].style.overflow = 'auto';
-    document.getElementsByClassName("nav-overlay")[0].style.display = "none";
-    document.getElementsByClassName("nav-mobile")[0].style.transform = "translateX(100%)";
+    document.querySelector('body').style.overflow = 'auto';
+    document.querySelector(".nav-overlay").style.display = "none";
+    document.querySelector(".nav-mobile").style.transform = "translateX(100%)";
     for (var c = document.querySelectorAll(".nav-mobile ul li, .social-btn > a"), a = 0; a < c.length; a++) c[a].style.transform = "translate(50%, 100%) scale(0)"
 }
 
 function scrollToSection(section) {
-    const aboutme = $(".about-me:eq(0)");
-    const projects = $(".projects:eq(0)");
-    const skills = $(".skills:eq(0)");
-    const contact = $(".contact:eq(0)");
+    const projects = $("section.projects:eq(0)");
+    const skills = $("section.skills:eq(0)");
+    const contact = $("section.contact:eq(0)");
     var target;
     if (section === 'aboutme')
-        target = 0; // scroll to top
+        target = 0; // aboutme => scroll to top (target = 0)
     else if (section === 'projects')
         target = projects.offset().top;
     else if (section === 'skills')
@@ -46,7 +45,7 @@ let skillContentList = document.getElementsByClassName("skills_content");
 for (var i = 0; i < tabsList.length; i++) {
     tabsList[i].addEventListener("click", function () {
         if (!this.classList.contains("tab--active")) {
-            document.getElementsByClassName("tab--active")[0].classList.remove("tab--active")
+            document.querySelector(".tab--active").classList.remove("tab--active")
 
             this.classList.add("tab--active");
             var arr = Array.prototype.slice.call(tabsList);
@@ -64,6 +63,7 @@ for (var i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener("focus", function () {
         this.classList.remove("input--error");
         var inputId = this.id;
+
         if (inputId === "nameInput") {
             document.getElementById("nameError").style.display = "none";
         } else if (inputId === "emailInput") {
@@ -114,9 +114,13 @@ contactForm.addEventListener("submit", (e) => {
 
     const submitBtn = document.querySelector("section.contact .contact_form button");
     const SUBMIT_DEFAULT_TEXT = submitBtn.innerHTML;
-    submitBtn.innerHTML = `Sending <div class="loader"></div>`;
-    var params = new URLSearchParams(new FormData(contactForm)).toString();
+    const SUBMIT_LOADING = `Sending <div class="loader"></div>`;
+
+    submitBtn.innerHTML = SUBMIT_LOADING;
+    var formData = new FormData(contactForm);
+    var params = new URLSearchParams(formData).toString();
     var requestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
+    // requestUrl = "http://localhost:8080/portfolio_sendmail_war/api/send"
 
     axios(
         {
@@ -126,7 +130,7 @@ contactForm.addEventListener("submit", (e) => {
             header: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }
     ).then(function (response) {
-        submitBtn.innerHTML = SUBMIT_DEFAULT_TEXT;
+
         var recaptcha_status = response.data["recaptcha_status"];
         var sendmail_status = response.data["sendmail_status"];
         var isValidInput = response.data["isValidInput"];
@@ -156,6 +160,7 @@ contactForm.addEventListener("submit", (e) => {
                 }
             }
         }
+        submitBtn.innerHTML = SUBMIT_DEFAULT_TEXT;
 
     }).catch(function (err) {
         submitBtn.innerHTML = SUBMIT_DEFAULT_TEXT;
