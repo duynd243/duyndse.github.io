@@ -18,7 +18,7 @@ ion-icon {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 10;
     box-shadow: rgb(33 35 38 / 10%) 0 10px 10px -10px
 }
 
