@@ -306,7 +306,6 @@
         </div>
 
         <div class="skills_content" style="display: flex;">
-
             <div class="skill_item">
                 <img src="images/techs/html.webp" alt="" class="img">
                 <div class="name">HTML</div>
@@ -337,7 +336,7 @@
             </div>
             <div class="skill_item">
                 <img src="images/techs/postgres.webp" alt="" class="img">
-                <div class="name">PostgresSQL</div>
+                <div class="name">PostgreSQL</div>
             </div>
         </div>
         <div class="skills_content">
@@ -492,7 +491,10 @@
         <div class="wrapper">
             <div>Made with <img src="images/heart.png" class="heart"> by <span class="footer_name"><span>Duy
                         Nguyen</span></span></div>
-            <small>&copy; Copyright 2022</small>
+            <small id="copyright"></small>
+            <script>
+                document.getElementById("copyright").innerHTML = `&copy; ${new Date().getFullYear()}. All Rights Reserved.`
+            </script>
         </div>
     </footer>
 
