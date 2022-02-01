@@ -119,8 +119,7 @@ contactForm.addEventListener("submit", (e) => {
     submitBtn.innerHTML = SUBMIT_LOADING;
     var formData = new FormData(contactForm);
     var params = new URLSearchParams(formData).toString();
-    var requestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
-    // requestUrl = "http://localhost:8080/portfolio_sendmail_war/api/send"
+    var requestUrl = 'https://duynd-mailservice.herokuapp.com/api/send';
 
     axios(
         {
@@ -131,34 +130,33 @@ contactForm.addEventListener("submit", (e) => {
         }
     ).then(function (response) {
 
-        var recaptcha_status = response.data["recaptcha_status"];
-        var sendmail_status = response.data["sendmail_status"];
-        var isValidInput = response.data["isValidInput"];
-        if (recaptcha_status === "empty" || !recaptcha_status) {
+        var recaptchaStatus = response.data["recaptchaStatus"];
+        var sendMailStatus = response.data["sendMailStatus"];
+        if (recaptchaStatus === "EMPTY" || recaptchaStatus === "INVALID") {
             showToast("error", "Failed", "Error occurred with repcatcha. Please try again!");
-        } else if (recaptcha_status) {
-            if (!isValidInput) {
-                var nameError = response.data["nameError"];
-                var emailError = response.data["emailError"];
-                var messageError = response.data["messageError"];
-                if (nameError === "empty") {
-                    showErrorMessage("nameInput", "nameError", "Please enter your name.");
-                }
-                if (emailError === "empty") {
-                    showErrorMessage("emailInput", "emailError", "Please enter your email.");
-                } else if (emailError === "invalid") {
-                    showErrorMessage("emailInput", "emailError", "Please enter a valid email.");
-                }
-                if (messageError === "empty") {
-                    showErrorMessage("messageInput", "messageError", "Please enter your message.");
-                }
-            } else {
-                if (sendmail_status === 202) {
-                    showToast("success", "Success", "If you can't find the email, please check your spam and promotional mailboxes.");
-                } else {
-                    showToast("error", "Failed", "Error occurred with mail sending. Please try again!");
-                }
+        } else if (recaptchaStatus === "VALID") {
+
+            var nameError = response.data["nameError"];
+            var emailError = response.data["emailError"];
+            var messageError = response.data["messageError"];
+            if (nameError === "empty") {
+                showErrorMessage("nameInput", "nameError", "Please enter your name.");
             }
+            if (emailError === "empty") {
+                showErrorMessage("emailInput", "emailError", "Please enter your email.");
+            } else if (emailError === "invalid") {
+                showErrorMessage("emailInput", "emailError", "Please enter a valid email.");
+            }
+            if (messageError === "empty") {
+                showErrorMessage("messageInput", "messageError", "Please enter your message.");
+            }
+
+            if (sendMailStatus === 202) {
+                showToast("success", "Success", "If you can't find the email, please check your spam and promotional mailboxes.");
+            } else {
+                showToast("error", "Failed", "Error occurred with mail sending. Please try again!");
+            }
+
         }
         submitBtn.innerHTML = SUBMIT_DEFAULT_TEXT;
 

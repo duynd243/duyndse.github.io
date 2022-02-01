@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--ION-ICON-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</head>
+
+<body>
+    <div id="toast__container">
+    </div>
+    <form id="form">
+        <input type="text" name="fullName" id="fullName" placeholder="Name">
+        <div id="fullName_required"></div><br>
+        <input type="text" name="email" id="email" placeholder="Email">
+        <div id="email_required"></div><br>
+        <input type="text" name="message" id="message" placeholder="Message">
+        <div id="message_required"></div><br>
+        <div class="g-recaptcha" data-sitekey="6LfLKqUdAAAAAHK2uxNrrlIB-u0a4Yt8HFEkUXni"></div>
+        <br />
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+    <script>
+        let contactForm = document.getElementById("form");
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            var formData = new FormData(contactForm);
+            document.getElementById('fullName_required').innerText = '';
+            document.getElementById('email_required').innerText = '';
+            document.getElementById('message_required').innerText = '';
+
+
+            if (grecaptcha.getResponse() === '') {
+                showToast("error", "Failed", "Recaptcha is required!");
+                return;
+            }
+
+            var fullName = document.getElementById('fullName').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+
+            if (fullName === '' || email === '' || message === '') {
+                grecaptcha.reset();
+                if (fullName === '')
+                    document.getElementById('fullName_required').innerText = 'Fullname is required';
+                if (email === '')
+                    document.getElementById('email_required').innerText = 'Email is required';
+                if (message === '')
+                    document.getElementById('message_required').innerText = 'Message is required';
+                return;
+            }
+           
+            var reuquestUrl = 'https://portfolio-sendmail.herokuapp.com/api/send';
+            reuquestUrl = 'http://localhost:8080/portfolio_sendmail_war/api/send';
+            axios.post(reuquestUrl,
+            formData,
+                {
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                }).then(function (response) {
+                    console.log(response.data);
+                    var recaptcha_status = response.data["recaptcha_status"];
+                    var sendmail_status = response.data["sendmail_status"];
+                    if (recaptcha_status === "empty" || !recaptcha_status) {
+                        showToast("error", "Failed", "Error occurred with repcatcha. Please try again!");
+                    } else if (recaptcha_status) {
+                        if (sendmail_status === 202) {
+                            showToast("success", "Success", "If you can't find the email, please check your spam and promotional mailboxes.");
+                        } else {
+                            showToast("error", "Failed", "Error occurred with mail sending. Please try again!");
+                        }
+                    }
+
+                }).catch(function (err) {
+                    console.log(err);
+                    showToast("error", "Failed", err)
+                });
+            grecaptcha.reset();
+        });
+
+
+    </script>
+</body>
+
+</html>
